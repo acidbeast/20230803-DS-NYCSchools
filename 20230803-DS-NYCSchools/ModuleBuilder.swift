@@ -8,13 +8,13 @@
 import UIKit
 
 protocol ModuleBuilderProtocol {
-    func createModule() -> UIViewController
+    func createModule(router: MainRouterProtocol) -> UIViewController
 }
 
 final class ModuleBuilder: ModuleBuilderProtocol {
     
-    func createModule() -> UIViewController {
-        return UIViewController()
+    func createModule(router: MainRouterProtocol) -> UIViewController {
+        return ViewController()
     }
     
 }
