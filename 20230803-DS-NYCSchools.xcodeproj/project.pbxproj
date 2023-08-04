@@ -15,6 +15,7 @@
 		7A163F4A2A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F492A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsTests.swift */; };
 		7A163F542A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F532A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITests.swift */; };
 		7A163F562A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F552A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITestsLaunchTests.swift */; };
+		7A163F632A7D88C7009939C9 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F622A7D88C7009939C9 /* ModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7A163F4F2A7D6F3F009939C9 /* 20230803-DS-NYCSchoolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "20230803-DS-NYCSchoolsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A163F532A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _0230803_DS_NYCSchoolsUITests.swift; sourceTree = "<group>"; };
 		7A163F552A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _0230803_DS_NYCSchoolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7A163F622A7D88C7009939C9 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				7A163F322A7D6F3E009939C9 /* AppDelegate.swift */,
+				7A163F622A7D88C7009939C9 /* ModuleBuilder.swift */,
 				7A163F342A7D6F3E009939C9 /* SceneDelegate.swift */,
 				7A163F362A7D6F3E009939C9 /* ViewController.swift */,
 				7A163F3B2A7D6F3F009939C9 /* Assets.xcassets */,
@@ -257,6 +260,7 @@
 				7A163F372A7D6F3E009939C9 /* ViewController.swift in Sources */,
 				7A163F332A7D6F3E009939C9 /* AppDelegate.swift in Sources */,
 				7A163F352A7D6F3E009939C9 /* SceneDelegate.swift in Sources */,
+				7A163F632A7D88C7009939C9 /* ModuleBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
