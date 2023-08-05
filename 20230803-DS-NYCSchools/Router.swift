@@ -11,12 +11,13 @@ import UIKit
 protocol RouterProtocol {
     var navigationController: UINavigationController? { get set }
     var moduleBuilder: ModuleBuilderProtocol? { get set }
-}
-
-protocol MainRouterProtocol: RouterProtocol {
     func start()
     func goToRoot()
     func goBack()
+}
+
+protocol MainRouterProtocol: RouterProtocol {
+    func goToSchoolsList()
 }
 
 final class MainRouter: MainRouterProtocol {
@@ -33,9 +34,7 @@ final class MainRouter: MainRouterProtocol {
     }
     
     func start() {
-        guard let navigationController = navigationController else { return }
-        guard let vc = moduleBuilder?.createModule(router: self) else { return }
-        navigationController.viewControllers = [vc]
+        goToSchoolsList()
     }
     
     func goToRoot() {
@@ -46,6 +45,12 @@ final class MainRouter: MainRouterProtocol {
     func goBack() {
         guard let navigationController = navigationController else { return }
         navigationController.popViewController(animated: true)
+    }
+    
+    func goToSchoolsList() {
+        guard let navigationController = navigationController else { return }
+        guard let vc = moduleBuilder?.createSchoolsListModule(router: self) else { return }
+        navigationController.viewControllers = [vc]
     }
     
     
