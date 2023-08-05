@@ -8,13 +8,15 @@
 import UIKit
 
 protocol ModuleBuilderProtocol {
-    func createModule(router: MainRouterProtocol) -> UIViewController
+    func createSchoolsListModule(router: MainRouterProtocol) -> UIViewController
 }
 
 final class ModuleBuilder: ModuleBuilderProtocol {
-    
-    func createModule(router: MainRouterProtocol) -> UIViewController {
-        return ViewController()
+        
+    func createSchoolsListModule(router: MainRouterProtocol) -> UIViewController {
+        let vm = SchoolsListVM()
+        let vc = SchoolsListVC(router: router, viewModel: vm)
+        return vc
     }
     
 }

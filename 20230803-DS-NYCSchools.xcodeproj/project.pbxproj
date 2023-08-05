@@ -9,14 +9,28 @@
 /* Begin PBXBuildFile section */
 		7A163F332A7D6F3E009939C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F322A7D6F3E009939C9 /* AppDelegate.swift */; };
 		7A163F352A7D6F3E009939C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F342A7D6F3E009939C9 /* SceneDelegate.swift */; };
-		7A163F372A7D6F3E009939C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F362A7D6F3E009939C9 /* ViewController.swift */; };
 		7A163F3C2A7D6F3F009939C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A163F3B2A7D6F3F009939C9 /* Assets.xcassets */; };
 		7A163F3F2A7D6F3F009939C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A163F3D2A7D6F3F009939C9 /* LaunchScreen.storyboard */; };
-		7A163F4A2A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F492A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsTests.swift */; };
 		7A163F542A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F532A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITests.swift */; };
 		7A163F562A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F552A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITestsLaunchTests.swift */; };
 		7A163F632A7D88C7009939C9 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F622A7D88C7009939C9 /* ModuleBuilder.swift */; };
 		7A163F652A7D8AA8009939C9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F642A7D8AA8009939C9 /* Router.swift */; };
+		7A163F692A7D907D009939C9 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F682A7D907D009939C9 /* Constraints.swift */; };
+		7A163F6B2A7D90A3009939C9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F6A2A7D90A3009939C9 /* UIView.swift */; };
+		7A163F732A7EB55C009939C9 /* SchoolsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F722A7EB55C009939C9 /* SchoolsListVC.swift */; };
+		7A163F752A7EB569009939C9 /* SchoolsListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F742A7EB569009939C9 /* SchoolsListVM.swift */; };
+		7A163F772A7EB5BF009939C9 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F762A7EB5BF009939C9 /* School.swift */; };
+		7A163F792A7EBC4A009939C9 /* SchoolsListVC+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F782A7EBC4A009939C9 /* SchoolsListVC+Setup.swift */; };
+		7A163F7B2A7EC0AE009939C9 /* SchoolsListCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F7A2A7EC0AE009939C9 /* SchoolsListCellVM.swift */; };
+		7A163F7D2A7EC140009939C9 /* SchoolsListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F7C2A7EC140009939C9 /* SchoolsListViewData.swift */; };
+		7A163F7F2A7EC287009939C9 /* SchoolsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */; };
+		7A163F812A7EC88D009939C9 /* SchoolsListView+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */; };
+		7A163F832A7EC963009939C9 /* SchoolsListView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */; };
+		7A8019C82A7ED0AC0040C380 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */; };
+		7A8019CA2A7ED0E90040C380 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019C92A7ED0E90040C380 /* LoadingView.swift */; };
+		7A8019CC2A7EE68A0040C380 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CB2A7EE68A0040C380 /* EmptyView.swift */; };
+		7A8019CE2A7EE91B0040C380 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CD2A7EE91B0040C380 /* ErrorView.swift */; };
+		7A8019D02A7EEF180040C380 /* SchoolsListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CF2A7EEF180040C380 /* SchoolsListVMTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,17 +54,31 @@
 		7A163F2F2A7D6F3E009939C9 /* 20230803-DS-NYCSchools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "20230803-DS-NYCSchools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A163F322A7D6F3E009939C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A163F342A7D6F3E009939C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7A163F362A7D6F3E009939C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A163F3B2A7D6F3F009939C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A163F3E2A7D6F3F009939C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A163F402A7D6F3F009939C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A163F452A7D6F3F009939C9 /* 20230803-DS-NYCSchoolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "20230803-DS-NYCSchoolsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A163F492A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _0230803_DS_NYCSchoolsTests.swift; sourceTree = "<group>"; };
 		7A163F4F2A7D6F3F009939C9 /* 20230803-DS-NYCSchoolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "20230803-DS-NYCSchoolsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A163F532A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _0230803_DS_NYCSchoolsUITests.swift; sourceTree = "<group>"; };
 		7A163F552A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _0230803_DS_NYCSchoolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7A163F622A7D88C7009939C9 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		7A163F642A7D8AA8009939C9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		7A163F682A7D907D009939C9 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		7A163F6A2A7D90A3009939C9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7A163F722A7EB55C009939C9 /* SchoolsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListVC.swift; sourceTree = "<group>"; };
+		7A163F742A7EB569009939C9 /* SchoolsListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListVM.swift; sourceTree = "<group>"; };
+		7A163F762A7EB5BF009939C9 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		7A163F782A7EBC4A009939C9 /* SchoolsListVC+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListVC+Setup.swift"; sourceTree = "<group>"; };
+		7A163F7A2A7EC0AE009939C9 /* SchoolsListCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListCellVM.swift; sourceTree = "<group>"; };
+		7A163F7C2A7EC140009939C9 /* SchoolsListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListViewData.swift; sourceTree = "<group>"; };
+		7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListView.swift; sourceTree = "<group>"; };
+		7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListView+Setup.swift"; sourceTree = "<group>"; };
+		7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListView+TableView.swift"; sourceTree = "<group>"; };
+		7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		7A8019C92A7ED0E90040C380 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		7A8019CB2A7EE68A0040C380 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		7A8019CD2A7EE91B0040C380 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		7A8019CF2A7EEF180040C380 /* SchoolsListVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListVMTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +129,13 @@
 		7A163F312A7D6F3E009939C9 /* 20230803-DS-NYCSchools */ = {
 			isa = PBXGroup;
 			children = (
+				7A163F662A7D9048009939C9 /* Extensions */,
+				7A163F6C2A7D91C9009939C9 /* Modules */,
+				7A163F6E2A7D92BE009939C9 /* UI */,
 				7A163F322A7D6F3E009939C9 /* AppDelegate.swift */,
 				7A163F622A7D88C7009939C9 /* ModuleBuilder.swift */,
 				7A163F642A7D8AA8009939C9 /* Router.swift */,
 				7A163F342A7D6F3E009939C9 /* SceneDelegate.swift */,
-				7A163F362A7D6F3E009939C9 /* ViewController.swift */,
 				7A163F3B2A7D6F3F009939C9 /* Assets.xcassets */,
 				7A163F3D2A7D6F3F009939C9 /* LaunchScreen.storyboard */,
 				7A163F402A7D6F3F009939C9 /* Info.plist */,
@@ -116,7 +146,7 @@
 		7A163F482A7D6F3F009939C9 /* 20230803-DS-NYCSchoolsTests */ = {
 			isa = PBXGroup;
 			children = (
-				7A163F492A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsTests.swift */,
+				7A8019CF2A7EEF180040C380 /* SchoolsListVMTest.swift */,
 			);
 			path = "20230803-DS-NYCSchoolsTests";
 			sourceTree = "<group>";
@@ -128,6 +158,82 @@
 				7A163F552A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsUITestsLaunchTests.swift */,
 			);
 			path = "20230803-DS-NYCSchoolsUITests";
+			sourceTree = "<group>";
+		};
+		7A163F662A7D9048009939C9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7A163F672A7D9052009939C9 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7A163F672A7D9052009939C9 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				7A163F682A7D907D009939C9 /* Constraints.swift */,
+				7A163F6A2A7D90A3009939C9 /* UIView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		7A163F6C2A7D91C9009939C9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				7A163F6D2A7D91DA009939C9 /* SchoolsList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		7A163F6D2A7D91DA009939C9 /* SchoolsList */ = {
+			isa = PBXGroup;
+			children = (
+				7A163F6F2A7D92DD009939C9 /* Model */,
+				7A163F702A7D92EA009939C9 /* View */,
+				7A163F712A7D92F6009939C9 /* ViewModel */,
+			);
+			path = SchoolsList;
+			sourceTree = "<group>";
+		};
+		7A163F6E2A7D92BE009939C9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */,
+				7A8019C92A7ED0E90040C380 /* LoadingView.swift */,
+				7A8019CB2A7EE68A0040C380 /* EmptyView.swift */,
+				7A8019CD2A7EE91B0040C380 /* ErrorView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7A163F6F2A7D92DD009939C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A163F762A7EB5BF009939C9 /* School.swift */,
+				7A163F7C2A7EC140009939C9 /* SchoolsListViewData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A163F702A7D92EA009939C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A163F722A7EB55C009939C9 /* SchoolsListVC.swift */,
+				7A163F782A7EBC4A009939C9 /* SchoolsListVC+Setup.swift */,
+				7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */,
+				7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */,
+				7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A163F712A7D92F6009939C9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7A163F742A7EB569009939C9 /* SchoolsListVM.swift */,
+				7A163F7A2A7EC0AE009939C9 /* SchoolsListCellVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,11 +366,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A163F372A7D6F3E009939C9 /* ViewController.swift in Sources */,
+				7A163F7D2A7EC140009939C9 /* SchoolsListViewData.swift in Sources */,
+				7A163F792A7EBC4A009939C9 /* SchoolsListVC+Setup.swift in Sources */,
+				7A8019CE2A7EE91B0040C380 /* ErrorView.swift in Sources */,
+				7A163F812A7EC88D009939C9 /* SchoolsListView+Setup.swift in Sources */,
 				7A163F332A7D6F3E009939C9 /* AppDelegate.swift in Sources */,
+				7A8019CA2A7ED0E90040C380 /* LoadingView.swift in Sources */,
 				7A163F652A7D8AA8009939C9 /* Router.swift in Sources */,
+				7A8019C82A7ED0AC0040C380 /* IndicatorView.swift in Sources */,
+				7A163F772A7EB5BF009939C9 /* School.swift in Sources */,
+				7A163F6B2A7D90A3009939C9 /* UIView.swift in Sources */,
 				7A163F352A7D6F3E009939C9 /* SceneDelegate.swift in Sources */,
+				7A8019CC2A7EE68A0040C380 /* EmptyView.swift in Sources */,
+				7A163F692A7D907D009939C9 /* Constraints.swift in Sources */,
+				7A163F7B2A7EC0AE009939C9 /* SchoolsListCellVM.swift in Sources */,
+				7A163F732A7EB55C009939C9 /* SchoolsListVC.swift in Sources */,
+				7A163F7F2A7EC287009939C9 /* SchoolsListView.swift in Sources */,
+				7A163F832A7EC963009939C9 /* SchoolsListView+TableView.swift in Sources */,
 				7A163F632A7D88C7009939C9 /* ModuleBuilder.swift in Sources */,
+				7A163F752A7EB569009939C9 /* SchoolsListVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A163F4A2A7D6F3F009939C9 /* _0230803_DS_NYCSchoolsTests.swift in Sources */,
+				7A8019D02A7EEF180040C380 /* SchoolsListVMTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
