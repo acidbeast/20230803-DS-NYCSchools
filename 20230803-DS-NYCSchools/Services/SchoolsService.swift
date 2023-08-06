@@ -8,11 +8,15 @@
 import Foundation
 
 protocol SchoolsServiceProtocol {
+    var schoolsList: SchoolsList? { get set }
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void)
+    func getSchool(dbn: String) -> School?
 }
 
 final class SchoolsService: SchoolsServiceProtocol {
 
+    var schoolsList: SchoolsList?
+    
     enum ServiceError: String, Error {
         case data = "No data returned from request."
         case url = "URL is incorrect."
@@ -39,7 +43,18 @@ final class SchoolsService: SchoolsServiceProtocol {
             completion(nil, ServiceError.url)
             return
         }
-        getData(url: url, completion: completion)
+        if let schoolsList = schoolsList {
+            completion(schoolsList, nil)
+        } else {
+            getData(url: url) { [weak self] schools, error in
+                self?.schoolsList = schools
+                completion(schools, error)
+            }
+        }
+    }
+    
+    func getSchool(dbn: String) -> School? {
+        return schoolsList?.filter{ $0.dbn == dbn }.first
     }
     
 }

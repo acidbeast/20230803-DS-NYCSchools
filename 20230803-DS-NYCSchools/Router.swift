@@ -17,7 +17,8 @@ protocol RouterProtocol {
 }
 
 protocol MainRouterProtocol: RouterProtocol {
-    func goToSchoolsList()
+    func showSchoolsList()
+    func showSchoolDetails(dbn: String)
 }
 
 final class MainRouter: MainRouterProtocol {
@@ -34,7 +35,7 @@ final class MainRouter: MainRouterProtocol {
     }
     
     func start() {
-        goToSchoolsList()
+        showSchoolsList()
     }
     
     func goToRoot() {
@@ -47,11 +48,20 @@ final class MainRouter: MainRouterProtocol {
         navigationController.popViewController(animated: true)
     }
     
-    func goToSchoolsList() {
+    func showSchoolsList() {
         guard let navigationController = navigationController else { return }
         guard let vc = moduleBuilder?.createSchoolsListModule(router: self) else { return }
         navigationController.viewControllers = [vc]
     }
     
+    func showSchoolDetails(dbn: String) {
+        guard let navigationController = navigationController else { return  }
+        guard let postDetailsVC = moduleBuilder?.createSchoolDetailsModule(
+            router: self,
+            dbn: dbn
+        )
+        else { return }
+        navigationController.pushViewController(postDetailsVC, animated: false)
+    }
     
 }

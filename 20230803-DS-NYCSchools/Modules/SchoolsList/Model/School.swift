@@ -9,10 +9,14 @@ typealias SchoolsList = [School]
 
 struct School: Codable {
     
+    let dbn: String
     let schoolName: String
+    let overviewParagraph: String
     
     enum CodingKeys: String, CodingKey {
+        case dbn
         case schoolName = "school_name"
+        case overviewParagraph = "overview_paragraph"
     }
     
 }
