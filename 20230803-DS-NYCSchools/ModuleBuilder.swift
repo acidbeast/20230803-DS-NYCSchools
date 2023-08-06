@@ -12,11 +12,15 @@ protocol ModuleBuilderProtocol {
 }
 
 final class ModuleBuilder: ModuleBuilderProtocol {
-        
+
     func createSchoolsListModule(router: MainRouterProtocol) -> UIViewController {
-        let vm = SchoolsListVM()
-        let vc = SchoolsListVC(router: router, viewModel: vm)
+        let schoolsService = SchoolsService()
+        let vm = SchoolsListVM(schoolsService: schoolsService)
+        let vc = SchoolsListVC(
+            router: router,
+            viewModel: vm
+        )
         return vc
     }
-    
+
 }

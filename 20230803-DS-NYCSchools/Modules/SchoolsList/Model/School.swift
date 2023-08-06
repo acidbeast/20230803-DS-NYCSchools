@@ -7,6 +7,12 @@
 
 typealias SchoolsList = [School]
 
-struct School {
+struct School: Codable {
+    
     let schoolName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case schoolName = "school_name"
+    }
+    
 }

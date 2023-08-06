@@ -31,6 +31,7 @@
 		7A8019CC2A7EE68A0040C380 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CB2A7EE68A0040C380 /* EmptyView.swift */; };
 		7A8019CE2A7EE91B0040C380 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CD2A7EE91B0040C380 /* ErrorView.swift */; };
 		7A8019D02A7EEF180040C380 /* SchoolsListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CF2A7EEF180040C380 /* SchoolsListVMTest.swift */; };
+		7A8019D32A7EF5E90040C380 /* SchoolsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019D22A7EF5E90040C380 /* SchoolsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		7A8019CB2A7EE68A0040C380 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		7A8019CD2A7EE91B0040C380 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		7A8019CF2A7EEF180040C380 /* SchoolsListVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListVMTest.swift; sourceTree = "<group>"; };
+		7A8019D22A7EF5E90040C380 /* SchoolsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				7A163F662A7D9048009939C9 /* Extensions */,
 				7A163F6C2A7D91C9009939C9 /* Modules */,
+				7A8019D12A7EF5BF0040C380 /* Services */,
 				7A163F6E2A7D92BE009939C9 /* UI */,
 				7A163F322A7D6F3E009939C9 /* AppDelegate.swift */,
 				7A163F622A7D88C7009939C9 /* ModuleBuilder.swift */,
@@ -234,6 +237,14 @@
 				7A163F7A2A7EC0AE009939C9 /* SchoolsListCellVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7A8019D12A7EF5BF0040C380 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7A8019D22A7EF5E90040C380 /* SchoolsService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +396,7 @@
 				7A163F832A7EC963009939C9 /* SchoolsListView+TableView.swift in Sources */,
 				7A163F632A7D88C7009939C9 /* ModuleBuilder.swift in Sources */,
 				7A163F752A7EB569009939C9 /* SchoolsListVM.swift in Sources */,
+				7A8019D32A7EF5E90040C380 /* SchoolsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
