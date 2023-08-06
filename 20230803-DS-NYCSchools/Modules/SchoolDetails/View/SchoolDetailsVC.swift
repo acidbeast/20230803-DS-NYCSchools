@@ -1,5 +1,5 @@
 //
-//  SchoolsListVC.swift
+//  SchoolDetailsVC.swift
 //  20230803-DS-NYCSchools
 //
 //  Created by Dmitry Shlepkin on 8/5/23.
@@ -7,16 +7,15 @@
 
 import UIKit
 
-
-final class SchoolsListVC: UIViewController {
+final class SchoolDetailsVC: UIViewController {
     
+    var viewModel: SchoolDetailsVMProtocol
     var router: MainRouterProtocol
-    var viewModel: SchoolsListVMProtocol
-    var schoolsListView = SchoolsListView()
+    var schoolDetailsView = SchoolDetailsView()
     
     init(
         router: MainRouterProtocol,
-        viewModel: SchoolsListVMProtocol
+        viewModel: SchoolDetailsVMProtocol
     ) {
         self.router = router
         self.viewModel = viewModel
@@ -30,22 +29,19 @@ final class SchoolsListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup(navigationTitle: viewModel.navigationTitle)
-        setUpdateViewHandler()
-        setViewOnSelectHandler()
-        viewModel.getSchools()
+        setUpdateViewHander() 
+        viewModel.getData()
     }
     
-    private func setUpdateViewHandler() {
+}
+
+private extension SchoolDetailsVC {
+    
+    func setUpdateViewHander() {
         viewModel.updateViewData = { viewData in
             DispatchQueue.main.async { [weak self, viewData] in
-                self?.schoolsListView.viewData = viewData
+                self?.schoolDetailsView.viewData = viewData
             }
-        }
-    }
-    
-    private func setViewOnSelectHandler() {
-        schoolsListView.onSelect = { [weak self] dbn in
-            self?.router.showSchoolDetails(dbn: dbn)
         }
     }
     

@@ -6,5 +6,6 @@
 //
 
 struct SchoolsListCellVM {
+    let dbn: String
     let title: String
 }

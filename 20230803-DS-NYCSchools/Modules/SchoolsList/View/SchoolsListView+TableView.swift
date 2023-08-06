@@ -11,7 +11,7 @@ extension SchoolsListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellVM = cellsData[indexPath.row]
         if let onSelect = onSelect {
-            onSelect("Pass item id here")
+            onSelect(cellVM.dbn)
         }
     }
 }

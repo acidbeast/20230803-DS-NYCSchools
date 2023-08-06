@@ -18,7 +18,7 @@ final class SchoolsListVM: SchoolsListVMProtocol {
     
     private var schoolsService: SchoolsServiceProtocol
     
-    var navigationTitle = "NYC Schools"
+    let navigationTitle = "NYC Schools"
     var updateViewData: ((SchoolsListViewData) -> Void)?
     var cellViewModels: [SchoolsListCellVM] = []
     
@@ -85,8 +85,9 @@ final class SchoolsListVM: SchoolsListVMProtocol {
     }
     
     private func createCellViewModelFrom(school: School) -> SchoolsListCellVM {
+        let dbn = school.dbn
         let title = school.schoolName
-        return SchoolsListCellVM(title: title)
+        return SchoolsListCellVM(dbn: dbn, title: title)
     }
     
 }
