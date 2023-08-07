@@ -37,9 +37,7 @@ final class SchoolDetailsView: UIView {
             break
         case .error(let error):
             setupErrorView()
-            errorView.updateWith (title: error.title) {
-                print("Action")
-            }
+            errorView.updateWith (title: error.title)
             break
         case .success(let success):
             sectionsData = success.sections ?? []
