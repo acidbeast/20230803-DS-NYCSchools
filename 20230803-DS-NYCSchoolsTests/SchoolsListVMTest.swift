@@ -12,6 +12,8 @@ import XCTest
 final class SchoolsListServiceMock: SchoolsServiceProtocol {
     
     var callCounter = 0
+    var schoolsList: SchoolsList?
+    func getSchool(dbn: String) -> School? { return nil }
     
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         callCounter += 1
@@ -20,6 +22,10 @@ final class SchoolsListServiceMock: SchoolsServiceProtocol {
 }
 
 final class SchoolsListServiceErrorMock: SchoolsServiceProtocol {
+    
+    var schoolsList: SchoolsList?
+    func getSchool(dbn: String) -> School? { return nil }
+    
     
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         enum TestError: Error {
@@ -33,6 +39,9 @@ final class SchoolsListServiceErrorMock: SchoolsServiceProtocol {
 
 final class SchoolsListServiceParseErrorMock: SchoolsServiceProtocol {
     
+    var schoolsList: SchoolsList?
+    func getSchool(dbn: String) -> School? { return nil }
+    
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         completion(nil, nil)
     }
@@ -40,6 +49,9 @@ final class SchoolsListServiceParseErrorMock: SchoolsServiceProtocol {
 }
 
 final class SchoolsListServiceEmptyMock: SchoolsServiceProtocol {
+    
+    var schoolsList: SchoolsList?
+    func getSchool(dbn: String) -> School? { return nil }
     
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         let data = SchoolsList()
@@ -50,9 +62,12 @@ final class SchoolsListServiceEmptyMock: SchoolsServiceProtocol {
 
 final class SchoolsListServiceSuccessMock: SchoolsServiceProtocol {
 
+    var schoolsList: SchoolsList?
+    func getSchool(dbn: String) -> School? { return nil }
+    
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         var data = SchoolsList()
-        let item = School(schoolName: "1")
+        let item = School(dbn: "", schoolName: "", overviewParagraph: "")
         data.append(item)
         completion(data, nil)
     }
