@@ -10,14 +10,26 @@ import XCTest
 
 
 final class SchoolsDetailsVMSchoolsServiceMock: SchoolsServiceProtocol {
+    
 
     var callCounter = 0
     var schoolsList: SchoolsList?
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {}
-
+    func getSchoolsSorted(by name: String) -> SchoolsList? { return nil }
+    
     func getSchool(dbn: String) -> School? {
         callCounter += 1
-        return School(dbn: "", schoolName: "test", overviewParagraph: "")
+        return School(
+            dbn: "",
+            schoolName: "",
+            overviewParagraph: "",
+            neighborhood: "",
+            phoneNumber: "",
+            primaryAddressLine1: "",
+            city: "",
+            zip: "",
+            stateCode: ""
+        )
     }
 
 }
