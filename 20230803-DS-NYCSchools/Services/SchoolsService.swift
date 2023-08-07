@@ -11,12 +11,13 @@ protocol SchoolsServiceProtocol {
     var schoolsList: SchoolsList? { get set }
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void)
     func getSchool(dbn: String) -> School?
+    func getSchoolsSorted(by name: String) -> SchoolsList? 
 }
 
 final class SchoolsService: Service, SchoolsServiceProtocol {
-
+    
     var schoolsList: SchoolsList?
-        
+    
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         guard let url = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json") else {
             completion(nil, ServiceError.url)
@@ -34,6 +35,10 @@ final class SchoolsService: Service, SchoolsServiceProtocol {
     
     func getSchool(dbn: String) -> School? {
         return schoolsList?.filter{ $0.dbn == dbn }.first
+    }
+    
+    func getSchoolsSorted(by name: String) -> SchoolsList? {
+        schoolsList?.filter { $0.schoolName.lowercased().contains(name.lowercased()) }
     }
     
 }

@@ -17,6 +17,7 @@ extension SchoolDetailsVC {
     }
     
     private func setupNavigation(title: String) {
+        navigationController?.isNavigationBarHidden = false
         navigationItem.title = title
     }
     

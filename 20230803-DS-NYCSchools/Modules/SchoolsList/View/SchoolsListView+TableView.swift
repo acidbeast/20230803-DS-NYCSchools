@@ -22,10 +22,20 @@ extension SchoolsListView: UITableViewDataSource {
         return cellsData.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let cellVM = cellsData[indexPath.row]
-        cell.textLabel?.text = cellVM.title
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {            
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SchoolListTableViewCell.identifier) as? SchoolListTableViewCell else {
+            return UITableViewCell()
+        }
+        let cellViewModel = cellsData[indexPath.row]
+        cell.configure(
+            title: cellViewModel.title,
+            address: cellViewModel.address,
+            neighborhood: cellViewModel.neighborhood,
+            phone: cellViewModel.phoneNumber
+        )
+        cell.selectionStyle = .none
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
