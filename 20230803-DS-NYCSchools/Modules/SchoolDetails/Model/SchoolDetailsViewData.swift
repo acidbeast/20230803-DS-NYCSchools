@@ -22,7 +22,7 @@ enum SchoolDetailsViewData: Equatable {
     struct Data {
         let title: String
         let description: String
-        let satResult: SatResult?
+        let sections: [SchoolDetailsSectionVM]?
     }
     
     static func == (lhs: SchoolDetailsViewData, rhs: SchoolDetailsViewData) -> Bool {

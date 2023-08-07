@@ -36,14 +36,14 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
             updateViewData?(.error(.init(
                 title: "Network Error",
                 description: "Please, try again later.",
-                satResult: nil
+                sections: nil
             )))
             return
         }
         updateViewData?(.loading(.init(
             title: "Loading",
             description: "Please wait...",
-            satResult: nil
+            sections: nil
         )))
         satService.getSatResults(dbn: dbn) { [weak self] satResults, error in
 
@@ -52,17 +52,17 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
                 self?.updateViewData?(.error(.init(
                     title: "Network Error",
                     description: "Please, try again later.",
-                    satResult: nil
+                    sections: nil
                 )))
                 return
             }
             
             // Check Data
-            guard let satResults = satResults else {
+            guard let satResults = satResults?.first else {
                 self?.updateViewData?(.error(.init(
                     title: "Parse Error",
                     description: "Please, try again later.",
-                    satResult: nil
+                    sections: nil
                 )))
                 return
             }
@@ -71,7 +71,42 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
             self?.updateViewData?(.success(.init(
                 title: school.schoolName,
                 description: school.overviewParagraph,
-                satResult: satResults.first
+                sections: [
+                    .init(type: .title(text: school.schoolName)),
+                    .init(type: .text(
+                        text: "\(school.primaryAddressLine1), \(school.city) \(school.stateCode) \(school.zip)",
+                        lines: 1,
+                        color: .darkGray
+                    )),
+                    .init(type: .text(
+                        text: "Neighborhood: \(school.neighborhood)",
+                        lines: 1,
+                        color: .black
+                    )),
+                    .init(type: .text(
+                        text: "Phone: \(school.phoneNumber)",
+                        lines: 1,
+                        color: .black
+                    )),
+                    .init(type: .text(text: school.overviewParagraph, lines: 0, color: .black)),
+                    .init(type: .subtitle(text: "SAT Results")),
+                    .init(type: .twoColumns(
+                        text: "Number of takers:",
+                        value: satResults.numOfSatTestTakers
+                    )),
+                    .init(type: .twoColumns(
+                        text: "Critical Reading Avg. Score:",
+                        value: satResults.satCriticalReadingAvgScore
+                    )),
+                    .init(type: .twoColumns(
+                        text: "Math Avg. Score:",
+                        value: satResults.satMathAvgScore
+                    )),
+                    .init(type: .twoColumns(
+                        text: "Writing Avg. Score:",
+                        value: satResults.satWritingAvgScore
+                    ))
+                ]
             )))
             
         }
