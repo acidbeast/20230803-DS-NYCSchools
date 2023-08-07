@@ -26,6 +26,8 @@ extension SchoolDetailsView: UICollectionViewDataSource {
             return createSchoolDetailsSubtitle(indexPath, text)
         case .twoColumns(let text, let value):
             return createSchoolDetailsTwoColumns(indexPath, (text, value))
+        case .map(let latitude, let longitude):
+            return createSchoolDetailsMap(indexPath, (latitude, longitude))
         }
     }
     
@@ -92,6 +94,18 @@ private extension SchoolDetailsView {
         return cell
     }
     
-    
-    
+    func createSchoolDetailsMap(
+        _ indexPath: IndexPath,
+        _ values: (String, String)
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: SchoolDetailsMapCollectionViewCell.identifier,
+            for: indexPath
+        ) as? SchoolDetailsMapCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.updateWith(values: values)
+        return cell
+    }
+
 }

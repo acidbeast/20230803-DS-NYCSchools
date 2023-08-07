@@ -52,6 +52,7 @@ extension SchoolDetailsTextCollectionViewCell {
     
     func updateWith(values: (String, Int, UIColor)) {
         textLabel.text = values.0
+            .trimmingCharacters(in: .whitespacesAndNewlines)
         textLabel.numberOfLines = values.1
         textLabel.textColor = values.2
     }
