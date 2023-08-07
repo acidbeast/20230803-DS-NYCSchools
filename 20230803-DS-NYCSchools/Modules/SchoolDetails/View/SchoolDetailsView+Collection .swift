@@ -7,9 +7,7 @@
 
 import UIKit
 
-extension SchoolDetailsView: UICollectionViewDelegate {
-    
-}
+extension SchoolDetailsView: UICollectionViewDelegate {}
 
 extension SchoolDetailsView: UICollectionViewDataSource {
         
