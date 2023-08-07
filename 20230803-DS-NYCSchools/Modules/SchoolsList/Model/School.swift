@@ -18,6 +18,14 @@ struct School: Codable {
     let city: String
     let zip: String
     let stateCode: String
+    let latitude: String?
+    let longitude: String?
+    let faxNumber: String?
+    let schoolEmail: String?
+    let website: String?
+    let subway: String
+    let bus: String
+    let totalStudents: String?
     
     enum CodingKeys: String, CodingKey {
         case dbn
@@ -29,6 +37,14 @@ struct School: Codable {
         case city
         case zip
         case stateCode = "state_code"
+        case latitude
+        case longitude
+        case faxNumber
+        case schoolEmail
+        case website
+        case subway
+        case bus
+        case totalStudents
     }
     
 }

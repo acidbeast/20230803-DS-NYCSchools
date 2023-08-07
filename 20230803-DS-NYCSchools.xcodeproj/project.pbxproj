@@ -26,6 +26,7 @@
 		7A163F7F2A7EC287009939C9 /* SchoolsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */; };
 		7A163F812A7EC88D009939C9 /* SchoolsListView+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */; };
 		7A163F832A7EC963009939C9 /* SchoolsListView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */; };
+		7A26BA3A2A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A26BA392A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift */; };
 		7A8019C82A7ED0AC0040C380 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */; };
 		7A8019CA2A7ED0E90040C380 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019C92A7ED0E90040C380 /* LoadingView.swift */; };
 		7A8019CC2A7EE68A0040C380 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CB2A7EE68A0040C380 /* EmptyView.swift */; };
@@ -97,6 +98,7 @@
 		7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListView.swift; sourceTree = "<group>"; };
 		7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListView+Setup.swift"; sourceTree = "<group>"; };
 		7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListView+TableView.swift"; sourceTree = "<group>"; };
+		7A26BA392A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsMapCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		7A8019C92A7ED0E90040C380 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		7A8019CB2A7EE68A0040C380 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				7AED118F2A80EC9C00B0C960 /* SchoolDetailsTextCollectionViewCell.swift */,
 				7AED11912A80F79E00B0C960 /* SchoolDetailsSubtitleCollectionViewCell.swift */,
 				7AED11932A80F9DD00B0C960 /* SchoolDetailsTwoColumnCollectionViewCell.swift */,
+				7A26BA392A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				7A163F692A7D907D009939C9 /* Constraints.swift in Sources */,
 				7AED11612A7F260800B0C960 /* SchoolDetailsVC.swift in Sources */,
 				7AED11942A80F9DD00B0C960 /* SchoolDetailsTwoColumnCollectionViewCell.swift in Sources */,
+				7A26BA3A2A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift in Sources */,
 				7AED11922A80F79E00B0C960 /* SchoolDetailsSubtitleCollectionViewCell.swift in Sources */,
 				7A163F7B2A7EC0AE009939C9 /* SchoolsListCellVM.swift in Sources */,
 				7A163F732A7EB55C009939C9 /* SchoolsListVC.swift in Sources */,

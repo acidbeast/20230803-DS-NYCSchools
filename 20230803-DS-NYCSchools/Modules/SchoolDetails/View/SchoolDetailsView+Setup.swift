@@ -43,6 +43,7 @@ extension SchoolDetailsView {
         registerCell(with: SchoolDetailsTextCollectionViewCell.self)
         registerCell(with: SchoolDetailsSubtitleCollectionViewCell.self)
         registerCell(with: SchoolDetailsTwoColumnsCollectionViewCell.self)
+        registerCell(with: SchoolDetailsMapCollectionViewCell.self)
     }
     
     private func registerCell(with cellClass: AnyClass) {

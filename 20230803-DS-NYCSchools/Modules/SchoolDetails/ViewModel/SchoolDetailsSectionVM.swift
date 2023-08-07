@@ -12,6 +12,7 @@ enum SchoolDetailsSectionVMType {
     case text(text: String, lines: Int, color: UIColor)
     case subtitle(text: String)
     case twoColumns(text: String, value: String)
+    case map(latitude: String, longitude: String)
 }
 
 struct SchoolDetailsSectionVM {
