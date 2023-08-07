@@ -14,11 +14,25 @@ enum SchoolsListViewData: Equatable {
     case error(Data)
     
     struct Data {
+        
         let title: String
         let description: String
         let schools: [SchoolsListCellVM]?
+        
+        init(title: String, description: String) {
+            self.title = title
+            self.description = description
+            self.schools = nil
+        }
+        
+        init(title: String, description: String, schools: [SchoolsListCellVM]?) {
+            self.title = title
+            self.description = description
+            self.schools = schools
+        }
+        
     }
-    
+        
     static func == (lhs: SchoolsListViewData, rhs: SchoolsListViewData) -> Bool {
         switch (lhs, rhs) {
         case (.initial, .initial):

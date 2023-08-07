@@ -15,6 +15,7 @@ protocol ModuleBuilderProtocol {
 final class ModuleBuilder: ModuleBuilderProtocol {
 
     private let schoolsService = SchoolsService()
+    private let satService = SatService()
     
     func createSchoolsListModule(router: MainRouterProtocol) -> UIViewController {
         let vm = SchoolsListVM(schoolsService: schoolsService)
@@ -31,7 +32,8 @@ final class ModuleBuilder: ModuleBuilderProtocol {
     ) -> UIViewController {
         let vm = SchoolDetailsVM(
             dbn: dbn,
-            schoolsService: schoolsService
+            schoolsService: schoolsService,
+            satService: satService
         )
         let vc = SchoolDetailsVC(
             router: router,

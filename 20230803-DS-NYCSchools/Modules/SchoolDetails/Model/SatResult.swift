@@ -5,6 +5,8 @@
 //  Created by Dmitry Shlepkin on 8/5/23.
 //
 
+typealias SatResultList = [SatResult]
+
 struct SatResult: Codable {
     
     let dbn: String

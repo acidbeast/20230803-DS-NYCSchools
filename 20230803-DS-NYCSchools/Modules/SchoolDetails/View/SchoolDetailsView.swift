@@ -43,7 +43,8 @@ final class SchoolDetailsView: UIView {
             setupSchoolFullView()
             schoolFullView.updateWith(
                 title: success.title,
-                text: success.description
+                text: success.description,
+                satMathAvg: success.satResult?.satMathAvgScore ?? ""
             )
             break
         }
