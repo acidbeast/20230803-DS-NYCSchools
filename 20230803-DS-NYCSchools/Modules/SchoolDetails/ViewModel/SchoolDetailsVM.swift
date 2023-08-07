@@ -33,11 +33,7 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
     
     func getData() {
         guard let school = getSchool() else {
-            updateViewData?(.error(.init(
-                title: "Network Error",
-                description: "Please, try again later.",
-                sections: nil
-            )))
+            handleError()
             return
         }
         updateViewData?(.loading(.init(
@@ -46,70 +42,67 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
             sections: nil
         )))
         satService.getSatResults(dbn: dbn) { [weak self] satResults, error in
-
-            // Handle Error
             if (error) != nil {
-                self?.updateViewData?(.error(.init(
-                    title: "Network Error",
-                    description: "Please, try again later.",
-                    sections: nil
-                )))
+                self?.handleError()
                 return
             }
-            
-            // Check Data
             guard let satResults = satResults?.first else {
-                self?.updateViewData?(.error(.init(
-                    title: "Parse Error",
-                    description: "Please, try again later.",
-                    sections: nil
-                )))
+                self?.handleError(title: "Parse Error")
                 return
             }
-            
-            // Handle Data
-            self?.updateViewData?(.success(.init(
-                title: school.schoolName,
-                description: school.overviewParagraph,
-                sections: [
-                    .init(type: .title(text: school.schoolName)),
-                    .init(type: .text(
-                        text: "\(school.primaryAddressLine1), \(school.city) \(school.stateCode) \(school.zip)",
-                        lines: 1,
-                        color: .darkGray
-                    )),
-                    .init(type: .text(
-                        text: "Neighborhood: \(school.neighborhood)",
-                        lines: 1,
-                        color: .black
-                    )),
-                    .init(type: .text(
-                        text: "Phone: \(school.phoneNumber)",
-                        lines: 1,
-                        color: .black
-                    )),
-                    .init(type: .text(text: school.overviewParagraph, lines: 0, color: .black)),
-                    .init(type: .subtitle(text: "SAT Results")),
-                    .init(type: .twoColumns(
-                        text: "Number of takers:",
-                        value: satResults.numOfSatTestTakers
-                    )),
-                    .init(type: .twoColumns(
-                        text: "Critical Reading Avg. Score:",
-                        value: satResults.satCriticalReadingAvgScore
-                    )),
-                    .init(type: .twoColumns(
-                        text: "Math Avg. Score:",
-                        value: satResults.satMathAvgScore
-                    )),
-                    .init(type: .twoColumns(
-                        text: "Writing Avg. Score:",
-                        value: satResults.satWritingAvgScore
-                    ))
-                ]
-            )))
-            
+            self?.handleData(school: school, satResults: satResults)
         }
+    }
+    
+    private func handleError(title: String = "Network Error") {
+        updateViewData?(.error(.init(
+            title: title,
+            description: "Please, try again later.",
+            sections: nil
+        )))
+    }
+    
+    private func handleData(school: School, satResults: SatResult) {
+        self.updateViewData?(.success(.init(
+            title: school.schoolName,
+            description: school.overviewParagraph,
+            sections: [
+                .init(type: .title(text: school.schoolName)),
+                .init(type: .text(
+                    text: "\(school.primaryAddressLine1), \(school.city) \(school.stateCode) \(school.zip)",
+                    lines: 1,
+                    color: .darkGray
+                )),
+                .init(type: .text(
+                    text: "Neighborhood: \(school.neighborhood)",
+                    lines: 1,
+                    color: .black
+                )),
+                .init(type: .text(
+                    text: "Phone: \(school.phoneNumber)",
+                    lines: 1,
+                    color: .black
+                )),
+                .init(type: .text(text: school.overviewParagraph, lines: 0, color: .black)),
+                .init(type: .subtitle(text: "SAT Results")),
+                .init(type: .twoColumns(
+                    text: "Number of takers:",
+                    value: satResults.numOfSatTestTakers
+                )),
+                .init(type: .twoColumns(
+                    text: "Critical Reading Avg. Score:",
+                    value: satResults.satCriticalReadingAvgScore
+                )),
+                .init(type: .twoColumns(
+                    text: "Math Avg. Score:",
+                    value: satResults.satMathAvgScore
+                )),
+                .init(type: .twoColumns(
+                    text: "Writing Avg. Score:",
+                    value: satResults.satWritingAvgScore
+                ))
+            ]
+        )))
     }
     
     private func getSchool() -> School? {
