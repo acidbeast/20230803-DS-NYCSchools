@@ -15,7 +15,9 @@ final class SchoolDetailsView: UIView {
         }
     }
     
-    lazy var schoolFullView = SchoolFullView()
+    var sectionsData = [SchoolDetailsSectionVM]()
+    
+    lazy var collectionView = UICollectionView()
     lazy var loadingView = LoadingView()
     lazy var errorView = ErrorView()
     
@@ -40,12 +42,8 @@ final class SchoolDetailsView: UIView {
             }
             break
         case .success(let success):
-            setupSchoolFullView()
-            schoolFullView.updateWith(
-                title: success.title,
-                text: success.description,
-                satMathAvg: success.satResult?.satMathAvgScore ?? ""
-            )
+            sectionsData = success.sections ?? []
+            setupCollectionView()
             break
         }
     }
