@@ -7,6 +7,11 @@
 
 import Foundation
 
+
+/*
+ If I had more time I woulde like to add Networking library, Moya for example.
+ */
+
 protocol ServiceProtocol {
     func getData<T: Codable>(url: URL, completion: @escaping (T?, Error?) -> Void)
 }

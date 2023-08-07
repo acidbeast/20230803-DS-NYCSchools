@@ -18,6 +18,10 @@ final class SchoolsService: Service, SchoolsServiceProtocol {
     
     var schoolsList: SchoolsList?
     
+    /*
+     This data looks like it get updated not so often
+     If I had more time, I will add Core Data here and cache schools.
+     */
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         guard let url = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json") else {
             completion(nil, ServiceError.url)
