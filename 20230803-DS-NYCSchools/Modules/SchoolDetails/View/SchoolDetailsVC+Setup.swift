@@ -25,6 +25,9 @@ extension SchoolDetailsVC {
         view.addSubview(schoolDetailsView)
         view.backgroundColor = .white
         schoolDetailsView.pinWithSafeArea(to: view)
+        schoolDetailsView.errorAction = { [weak self] in
+            self?.router.goBack()
+        }
     }
     
     

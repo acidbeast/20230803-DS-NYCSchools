@@ -16,6 +16,8 @@ final class SchoolDetailsView: UIView {
     }
     
     var sectionsData = [SchoolDetailsSectionVM]()
+    var errorAction: (() -> Void)?
+    
     
     lazy var collectionView = UICollectionView()
     lazy var loadingView = LoadingView()
@@ -37,7 +39,14 @@ final class SchoolDetailsView: UIView {
             break
         case .error(let error):
             setupErrorView()
-            errorView.updateWith (title: error.title)
+            errorView.updateWith (
+                title: error.title,
+                buttonText: "Go back"
+            ) { [weak self] in
+                if let action = self?.errorAction {
+                    action()
+                }
+            }
             break
         case .success(let success):
             sectionsData = success.sections ?? []
