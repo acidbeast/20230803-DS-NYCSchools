@@ -56,12 +56,12 @@ final class MainRouter: MainRouterProtocol {
     
     func showSchoolDetails(dbn: String) {
         guard let navigationController = navigationController else { return  }
-        guard let postDetailsVC = moduleBuilder?.createSchoolDetailsModule(
+        guard let schoolDetailsVC = moduleBuilder?.createSchoolDetailsModule(
             router: self,
             dbn: dbn
         )
         else { return }
-        navigationController.pushViewController(postDetailsVC, animated: false)
+        navigationController.pushViewController(schoolDetailsVC, animated: false)
     }
     
 }
