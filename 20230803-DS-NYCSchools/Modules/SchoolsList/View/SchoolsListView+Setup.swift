@@ -5,6 +5,8 @@
 //  Created by Dmitry Shlepkin on 8/5/23.
 //
 
+import UIKit
+
 extension SchoolsListView {
     
     func setup() {
@@ -16,6 +18,13 @@ extension SchoolsListView {
         tableView.pin(to: self)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100.0
+        tableView.register(
+            SchoolListTableViewCell.self,
+            forCellReuseIdentifier: SchoolListTableViewCell.identifier
+        )
+        tableView.reloadData()
     }
     
     func setupLoadingView() {

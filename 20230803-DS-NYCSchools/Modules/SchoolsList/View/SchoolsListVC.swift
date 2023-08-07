@@ -13,6 +13,8 @@ final class SchoolsListVC: UIViewController {
     var router: MainRouterProtocol
     var viewModel: SchoolsListVMProtocol
     var schoolsListView = SchoolsListView()
+    var searchController = UISearchController(searchResultsController: nil)
+    var debouncer = Debouncer(delay: 0.3)
     
     init(
         router: MainRouterProtocol,

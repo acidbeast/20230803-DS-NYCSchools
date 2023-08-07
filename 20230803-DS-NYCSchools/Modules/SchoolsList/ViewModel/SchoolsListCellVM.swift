@@ -8,4 +8,7 @@
 struct SchoolsListCellVM {
     let dbn: String
     let title: String
+    let address: String
+    let neighborhood: String
+    let phoneNumber: String
 }

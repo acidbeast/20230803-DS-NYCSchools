@@ -12,6 +12,7 @@ protocol SchoolsListVMProtocol {
     var updateViewData: ((SchoolsListViewData) -> Void)? { get set }
     var cellViewModels: [SchoolsListCellVM] { get set }
     func getSchools()
+    func getSchoolsSorted(by name: String) 
 }
 
 final class SchoolsListVM: SchoolsListVMProtocol {
@@ -59,7 +60,7 @@ final class SchoolsListVM: SchoolsListVMProtocol {
             if schools.count == 0 {
                 self?.updateViewData?(.empty(.init(
                     title: "Empty",
-                    description: "Post list is empty.",
+                    description: "Schools list is empty.",
                     schools: self?.cellViewModels
                 )))
             }
@@ -77,6 +78,30 @@ final class SchoolsListVM: SchoolsListVMProtocol {
         
     }
     
+    func getSchoolsSorted(by name: String) {
+        self.updateViewData?(.loading(.init(
+            title: "Loading",
+            description: "Please wait...",
+            schools: nil
+        )))
+        guard let schools = schoolsService.getSchoolsSorted(by: name) else { return }
+        if schools.count == 0 {
+            self.updateViewData?(.empty(.init(
+                title: "Not Found",
+                description: "There is no school with this name.",
+                schools: self.cellViewModels
+            )))
+        } else {
+            self.createCellsViewModels(schools: schools)
+            self.cellViewModels.sort { $0.title < $1.title }
+            self.updateViewData?(.success(.init(
+                title: "",
+                description: "",
+                schools: self.cellViewModels
+            )))
+        }
+    }
+    
     private func createCellsViewModels(schools: SchoolsList) {
         cellViewModels = []
         for school in schools {
@@ -87,7 +112,16 @@ final class SchoolsListVM: SchoolsListVMProtocol {
     private func createCellViewModelFrom(school: School) -> SchoolsListCellVM {
         let dbn = school.dbn
         let title = school.schoolName
-        return SchoolsListCellVM(dbn: dbn, title: title)
+        let address = "\(school.primaryAddressLine1), \(school.city) \(school.stateCode) \(school.zip)"
+        let neighborhood = "Neighborhood: \(school.neighborhood)"
+        let phoneNumber = "Phone: \(school.phoneNumber)"
+        return SchoolsListCellVM(
+            dbn: dbn,
+            title: title,
+            address: address,
+            neighborhood: neighborhood,
+            phoneNumber: phoneNumber
+        )
     }
     
 }
