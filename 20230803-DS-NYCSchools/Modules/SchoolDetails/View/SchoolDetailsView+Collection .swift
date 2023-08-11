@@ -14,7 +14,7 @@ extension SchoolDetailsView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         sectionsData.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = sectionsData[indexPath.row]
         switch section.type {
@@ -33,17 +33,26 @@ extension SchoolDetailsView: UICollectionViewDataSource {
     
 }
     
-
 // MARK: - Create Cells
 private extension SchoolDetailsView {
-            
-    func createSchoolDetailsTitle(
+       
+    private func createCell(
+        _ identifier: String,
+        _ indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(
+            withReuseIdentifier: identifier,
+            for: indexPath
+        )
+    }
+    
+    private func createSchoolDetailsTitle(
         _ indexPath: IndexPath,
         _ text: String
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: SchoolDetailsTitleCollectionViewCell.identifier,
-            for: indexPath
+        guard let cell = createCell(
+            SchoolDetailsTitleCollectionViewCell.identifier,
+            indexPath
         ) as? SchoolDetailsTitleCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -51,13 +60,13 @@ private extension SchoolDetailsView {
         return cell
     }
     
-    func createSchoolDetailsText(
+    private func createSchoolDetailsText(
         _ indexPath: IndexPath,
         _ values: (String, Int, UIColor)
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: SchoolDetailsTextCollectionViewCell.identifier,
-            for: indexPath
+        guard let cell = createCell(
+            SchoolDetailsTextCollectionViewCell.identifier,
+            indexPath
         ) as? SchoolDetailsTextCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -65,13 +74,13 @@ private extension SchoolDetailsView {
         return cell
     }
     
-    func createSchoolDetailsSubtitle(
+    private func createSchoolDetailsSubtitle(
         _ indexPath: IndexPath,
         _ text: String
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: SchoolDetailsSubtitleCollectionViewCell.identifier,
-            for: indexPath
+        guard let cell = createCell(
+            SchoolDetailsSubtitleCollectionViewCell.identifier,
+            indexPath
         ) as? SchoolDetailsSubtitleCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -79,14 +88,13 @@ private extension SchoolDetailsView {
         return cell
     }
     
-
-    func createSchoolDetailsTwoColumns(
+    private func createSchoolDetailsTwoColumns(
         _ indexPath: IndexPath,
         _ values: (String, String)
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: SchoolDetailsTwoColumnsCollectionViewCell.identifier,
-            for: indexPath
+        guard let cell = createCell(
+            SchoolDetailsTwoColumnsCollectionViewCell.identifier,
+            indexPath
         ) as? SchoolDetailsTwoColumnsCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -94,13 +102,13 @@ private extension SchoolDetailsView {
         return cell
     }
     
-    func createSchoolDetailsMap(
+    private func createSchoolDetailsMap(
         _ indexPath: IndexPath,
         _ values: (String, String)
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: SchoolDetailsMapCollectionViewCell.identifier,
-            for: indexPath
+        guard let cell = createCell(
+            SchoolDetailsMapCollectionViewCell.identifier,
+            indexPath
         ) as? SchoolDetailsMapCollectionViewCell else {
             return UICollectionViewCell()
         }

@@ -20,6 +20,7 @@ extension SchoolsListView {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100.0
+        tableView.backgroundColor = .white
         tableView.register(
             SchoolListTableViewCell.self,
             forCellReuseIdentifier: SchoolListTableViewCell.identifier

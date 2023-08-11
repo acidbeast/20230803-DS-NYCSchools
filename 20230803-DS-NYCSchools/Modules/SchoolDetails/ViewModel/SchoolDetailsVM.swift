@@ -63,7 +63,7 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
     }
     
     private func handleData(school: School, satResults: SatResult) {
-        var sections: [SchoolDetailsSectionVM] = [
+        let sections: [SchoolDetailsSectionVM] = [
             .init(type: .title(text: school.schoolName)),
             .init(type: .text(
                 text: "\(school.primaryAddressLine1), \(school.city) \(school.stateCode) \(school.zip)",
@@ -102,14 +102,14 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
             .init(type: .text(text: "Bus: \(school.bus)", lines: 0, color: .black)),
             .init(type: .text(text: "Subway: \(school.subway)", lines: 0, color: .black)),
         ]
-        if
-            let latitude = school.latitude,
-            let longitude = school.longitude {
-            sections.insert(.init(type: .map(
-                latitude: latitude,
-                longitude: longitude)
-            ), at: 11)
-        }        
+//        if
+//            let latitude = school.latitude,
+//            let longitude = school.longitude {
+//            sections.insert(.init(type: .map(
+//                latitude: latitude,
+//                longitude: longitude)
+//            ), at: 11)
+//        }
         self.updateViewData?(.success(.init(
             title: school.schoolName,
             description: school.overviewParagraph,
