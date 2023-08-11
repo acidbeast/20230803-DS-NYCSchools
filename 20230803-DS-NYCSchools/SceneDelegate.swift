@@ -27,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         router.start()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
+        window.overrideUserInterfaceStyle = .light
         
     }
 

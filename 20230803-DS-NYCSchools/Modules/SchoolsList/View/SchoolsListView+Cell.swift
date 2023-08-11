@@ -42,6 +42,7 @@ final class SchoolListTableViewCell: UITableViewCell {
 private extension SchoolListTableViewCell {
     
     func setup() {
+        backgroundColor = .white
         setupContainerView()
         setupTitleLabel()
         setupAddressLabel()
@@ -58,6 +59,7 @@ private extension SchoolListTableViewCell {
     func setupTitleLabel() {
         containerView.addSubview(titleLabel)
         titleLabel.numberOfLines = 0
+        titleLabel.textColor = .black
         titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         titleLabel
             .pinWithoutBottom(to: containerView)
