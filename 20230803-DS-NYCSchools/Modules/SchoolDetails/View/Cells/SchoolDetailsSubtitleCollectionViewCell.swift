@@ -34,7 +34,7 @@ private extension SchoolDetailsSubtitleCollectionViewCell {
         setupTextLabel()
     }
     
-    func setupTextLabel() {
+    func setupTextLabel() {        
         addSubview(textLabel)
         textLabel.textColor = .black
         textLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)

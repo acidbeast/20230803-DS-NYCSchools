@@ -9,10 +9,20 @@ import UIKit
 
 enum SchoolDetailsSectionVMType {
     case title(text: String)
-    case text(text: String, lines: Int, color: UIColor)
+    case text(
+        label: String = "",
+        text: String,
+        lines: Int = 0,
+        color: UIColor = .black,
+        topSpace: Double = 16
+    )
     case subtitle(text: String)
-    case twoColumns(text: String, value: String)
-    case map(latitude: String, longitude: String)
+    case twoColumns(
+        text: String,
+        value: String,
+        background: Bool = false
+    )
+    case separator
 }
 
 struct SchoolDetailsSectionVM {
