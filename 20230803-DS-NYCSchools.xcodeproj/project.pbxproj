@@ -26,13 +26,14 @@
 		7A163F7F2A7EC287009939C9 /* SchoolsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */; };
 		7A163F812A7EC88D009939C9 /* SchoolsListView+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */; };
 		7A163F832A7EC963009939C9 /* SchoolsListView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */; };
-		7A26BA3A2A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A26BA392A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift */; };
 		7A8019C82A7ED0AC0040C380 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */; };
 		7A8019CA2A7ED0E90040C380 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019C92A7ED0E90040C380 /* LoadingView.swift */; };
 		7A8019CC2A7EE68A0040C380 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CB2A7EE68A0040C380 /* EmptyView.swift */; };
 		7A8019CE2A7EE91B0040C380 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CD2A7EE91B0040C380 /* ErrorView.swift */; };
 		7A8019D02A7EEF180040C380 /* SchoolsListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CF2A7EEF180040C380 /* SchoolsListVMTest.swift */; };
 		7A8019D32A7EF5E90040C380 /* SchoolsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019D22A7EF5E90040C380 /* SchoolsService.swift */; };
+		7A822A1B2A86C076006FA646 /* SchoolDetailsSeparatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A822A1A2A86C076006FA646 /* SchoolDetailsSeparatorCollectionViewCell.swift */; };
+		7A822A1D2A86CC55006FA646 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A822A1C2A86CC55006FA646 /* UIColor+Hex.swift */; };
 		7AC81FB62A811B6F000D2875 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC81FB52A811B6F000D2875 /* RouterTest.swift */; };
 		7AC81FB82A811FC1000D2875 /* ModuleBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC81FB72A811FC1000D2875 /* ModuleBuilderTest.swift */; };
 		7AED11612A7F260800B0C960 /* SchoolDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED11602A7F260800B0C960 /* SchoolDetailsVC.swift */; };
@@ -98,13 +99,14 @@
 		7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListView.swift; sourceTree = "<group>"; };
 		7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListView+Setup.swift"; sourceTree = "<group>"; };
 		7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListView+TableView.swift"; sourceTree = "<group>"; };
-		7A26BA392A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsMapCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		7A8019C92A7ED0E90040C380 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		7A8019CB2A7EE68A0040C380 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		7A8019CD2A7EE91B0040C380 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		7A8019CF2A7EEF180040C380 /* SchoolsListVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListVMTest.swift; sourceTree = "<group>"; };
 		7A8019D22A7EF5E90040C380 /* SchoolsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsService.swift; sourceTree = "<group>"; };
+		7A822A1A2A86C076006FA646 /* SchoolDetailsSeparatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsSeparatorCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A822A1C2A86CC55006FA646 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		7AC81FB52A811B6F000D2875 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		7AC81FB72A811FC1000D2875 /* ModuleBuilderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderTest.swift; sourceTree = "<group>"; };
 		7AED11602A7F260800B0C960 /* SchoolDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsVC.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			children = (
 				7A163F682A7D907D009939C9 /* Constraints.swift */,
 				7A163F6A2A7D90A3009939C9 /* UIView.swift */,
+				7A822A1C2A86CC55006FA646 /* UIColor+Hex.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -359,7 +362,7 @@
 				7AED118F2A80EC9C00B0C960 /* SchoolDetailsTextCollectionViewCell.swift */,
 				7AED11912A80F79E00B0C960 /* SchoolDetailsSubtitleCollectionViewCell.swift */,
 				7AED11932A80F9DD00B0C960 /* SchoolDetailsTwoColumnCollectionViewCell.swift */,
-				7A26BA392A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift */,
+				7A822A1A2A86C076006FA646 /* SchoolDetailsSeparatorCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A163F7D2A7EC140009939C9 /* SchoolsListViewData.swift in Sources */,
+				7A822A1B2A86C076006FA646 /* SchoolDetailsSeparatorCollectionViewCell.swift in Sources */,
 				7AED11902A80EC9C00B0C960 /* SchoolDetailsTextCollectionViewCell.swift in Sources */,
 				7A163F792A7EBC4A009939C9 /* SchoolsListVC+Setup.swift in Sources */,
 				7A8019CE2A7EE91B0040C380 /* ErrorView.swift in Sources */,
@@ -514,9 +518,9 @@
 				7A163F352A7D6F3E009939C9 /* SceneDelegate.swift in Sources */,
 				7A8019CC2A7EE68A0040C380 /* EmptyView.swift in Sources */,
 				7A163F692A7D907D009939C9 /* Constraints.swift in Sources */,
+				7A822A1D2A86CC55006FA646 /* UIColor+Hex.swift in Sources */,
 				7AED11612A7F260800B0C960 /* SchoolDetailsVC.swift in Sources */,
 				7AED11942A80F9DD00B0C960 /* SchoolDetailsTwoColumnCollectionViewCell.swift in Sources */,
-				7A26BA3A2A819B60009144A6 /* SchoolDetailsMapCollectionViewCell.swift in Sources */,
 				7AED11922A80F79E00B0C960 /* SchoolDetailsSubtitleCollectionViewCell.swift in Sources */,
 				7A163F7B2A7EC0AE009939C9 /* SchoolsListCellVM.swift in Sources */,
 				7A163F732A7EB55C009939C9 /* SchoolsListVC.swift in Sources */,

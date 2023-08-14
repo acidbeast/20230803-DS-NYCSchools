@@ -7,10 +7,11 @@
 
 import UIKit
 
-
 final class SchoolDetailsTextCollectionViewCell: UICollectionViewCell {
     
     private let textLabel = UILabel()
+    private let prefixLabel = UILabel()
+    var topConstraint : NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,25 +37,54 @@ private extension SchoolDetailsTextCollectionViewCell {
     
     func setupTextLabel() {
         addSubview(textLabel)
-        textLabel.text = ""
         textLabel.textColor = .black
         textLabel.font = UIFont(name: "Avenir Next Regular", size: 16)
         textLabel.textAlignment = .left
         textLabel.numberOfLines = 0
         textLabel
-            .pin(to: self, withInsets: .init(top: 16, left: 0, bottom: 0, right: 0))
+            .pinWithoutTop(to: self)
+        topConstraint = textLabel.topAnchor.constraint(
+            equalTo: self.topAnchor,
+            constant: 0
+        )
+        topConstraint?.isActive = true
     }
     
 }
 
-
 extension SchoolDetailsTextCollectionViewCell {
     
-    func updateWith(values: (String, Int, UIColor)) {
-        textLabel.text = values.0
+    func updateWith(values: (String, String, Int, UIColor, Double)) {
+        
+        var prefixText = ""
+        if !values.0.isEmpty {
+            prefixText = "\(values.0)"
+        }
+
+        let attrs = [
+            NSAttributedString.Key.font : UIFont(name: "Avenir Next Medium", size: 16)
+        ]
+        let prefixString = NSMutableAttributedString(
+            string: prefixText,
+            attributes: attrs as [NSAttributedString.Key : Any]
+        )
+
+        let textValue = values.1
             .trimmingCharacters(in: .whitespacesAndNewlines)
-        textLabel.numberOfLines = values.1
-        textLabel.textColor = values.2
+            .replacingOccurrences(of: "Â", with: "")
+        let text = "\(textValue)"
+        let textString = NSMutableAttributedString(string: text)
+        prefixString.append(textString)
+
+        textLabel.attributedText = prefixString
+        textLabel.numberOfLines = values.2
+        textLabel.textColor = values.3
+        topConstraint?.constant = 0
+        if values.4 > 0 {
+            topConstraint?.constant = values.4
+            setNeedsLayout()
+        }
+        
     }
     
 }

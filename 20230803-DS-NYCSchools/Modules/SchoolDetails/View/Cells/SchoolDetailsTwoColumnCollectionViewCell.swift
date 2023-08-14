@@ -45,10 +45,9 @@ private extension SchoolDetailsTwoColumnsCollectionViewCell {
         valueLabel.textAlignment = .right
         valueLabel
             .width(50)
-            .height(24)
-            .top(to: topAnchor)
-            .trailing(to: trailingAnchor)
-            .bottom(to: bottomAnchor)
+            .top(to: topAnchor, spacing: 8)
+            .trailing(to: trailingAnchor, spacing: -4)
+            .bottom(to: bottomAnchor, spacing: -8)
     }
         
     func setupTextLabel() {
@@ -57,10 +56,9 @@ private extension SchoolDetailsTwoColumnsCollectionViewCell {
         textLabel.font = UIFont.systemFont(ofSize: 13)
         textLabel.numberOfLines = 0
         textLabel
-            .height(24)
-            .top(to: topAnchor)
-            .bottom(to: bottomAnchor)
-            .leading(to: leadingAnchor)
+            .top(to: topAnchor, spacing: 8)
+            .bottom(to: bottomAnchor, spacing: -8)
+            .leading(to: leadingAnchor, spacing: 4)
             .trailing(to: trailingAnchor, spacing: 50)
     }
 
@@ -68,9 +66,12 @@ private extension SchoolDetailsTwoColumnsCollectionViewCell {
 
 extension SchoolDetailsTwoColumnsCollectionViewCell {
     
-    func updateWith(values: (String, String)) {
+    func updateWith(values: (String, String, Bool)) {
         textLabel.text = values.0
         valueLabel.text = values.1
+        if values.2 == true {
+            backgroundColor = UIColor(hex: "#efefef")
+        }
     }
         
 }

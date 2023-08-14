@@ -20,14 +20,14 @@ extension SchoolDetailsView: UICollectionViewDataSource {
         switch section.type {
         case .title(let text):
             return createSchoolDetailsTitle(indexPath, text)
-        case .text(let text, let lines, let color):
-            return createSchoolDetailsText(indexPath, (text, lines, color))
+        case .text(let label, let text, let lines, let color, let topSpace):
+            return createSchoolDetailsText(indexPath, (label, text, lines, color, topSpace))
         case .subtitle(let text):
             return createSchoolDetailsSubtitle(indexPath, text)
-        case .twoColumns(let text, let value):
-            return createSchoolDetailsTwoColumns(indexPath, (text, value))
-        case .map(let latitude, let longitude):
-            return createSchoolDetailsMap(indexPath, (latitude, longitude))
+        case .twoColumns(let text, let value, let background):
+            return createSchoolDetailsTwoColumns(indexPath, (text, value, background))
+        case .separator:
+            return createSchoolDetailsSeparator(indexPath)
         }
     }
     
@@ -62,7 +62,7 @@ private extension SchoolDetailsView {
     
     private func createSchoolDetailsText(
         _ indexPath: IndexPath,
-        _ values: (String, Int, UIColor)
+        _ values: (String, String, Int, UIColor, Double)
     ) -> UICollectionViewCell {
         guard let cell = createCell(
             SchoolDetailsTextCollectionViewCell.identifier,
@@ -90,7 +90,7 @@ private extension SchoolDetailsView {
     
     private func createSchoolDetailsTwoColumns(
         _ indexPath: IndexPath,
-        _ values: (String, String)
+        _ values: (String, String, Bool)
     ) -> UICollectionViewCell {
         guard let cell = createCell(
             SchoolDetailsTwoColumnsCollectionViewCell.identifier,
@@ -102,18 +102,13 @@ private extension SchoolDetailsView {
         return cell
     }
     
-    private func createSchoolDetailsMap(
-        _ indexPath: IndexPath,
-        _ values: (String, String)
-    ) -> UICollectionViewCell {
+    private func createSchoolDetailsSeparator(_ indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = createCell(
-            SchoolDetailsMapCollectionViewCell.identifier,
+            SchoolDetailsSeparatorCollectionViewCell.identifier,
             indexPath
-        ) as? SchoolDetailsMapCollectionViewCell else {
+        ) as? SchoolDetailsSeparatorCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.updateWith(values: values)
         return cell
     }
-
 }

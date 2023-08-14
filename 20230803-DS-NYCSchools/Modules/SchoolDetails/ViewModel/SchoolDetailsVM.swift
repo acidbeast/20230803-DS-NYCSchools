@@ -42,14 +42,6 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
             sections: nil
         )))
         satService.getSatResults(dbn: dbn) { [weak self] satResults, error in
-            if (error) != nil {
-                self?.handleError()
-                return
-            }
-            guard let satResults = satResults?.first else {
-                self?.handleError(title: "Parse Error")
-                return
-            }
             self?.handleData(school: school, satResults: satResults)
         }
     }
@@ -62,59 +54,218 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
         )))
     }
     
-    private func handleData(school: School, satResults: SatResult) {
-        let sections: [SchoolDetailsSectionVM] = [
-            .init(type: .title(text: school.schoolName)),
-            .init(type: .text(
-                text: "\(school.primaryAddressLine1), \(school.city) \(school.stateCode) \(school.zip)",
-                lines: 1,
-                color: .darkGray
-            )),
-            .init(type: .text(
-                text: "Neighborhood: \(school.neighborhood)",
-                lines: 1,
-                color: .black
-            )),
-            .init(type: .text(
-                text: "Phone: \(school.phoneNumber)",
-                lines: 1,
-                color: .black
-            )),
-            .init(type: .text(text: school.overviewParagraph, lines: 0, color: .black)),
-            .init(type: .subtitle(text: "SAT Results")),
-            .init(type: .twoColumns(
-                text: "Number of takers:",
-                value: satResults.numOfSatTestTakers
-            )),
-            .init(type: .twoColumns(
-                text: "Critical Reading Avg. Score:",
-                value: satResults.satCriticalReadingAvgScore
-            )),
-            .init(type: .twoColumns(
-                text: "Math Avg. Score:",
-                value: satResults.satMathAvgScore
-            )),
-            .init(type: .twoColumns(
-                text: "Writing Avg. Score:",
-                value: satResults.satWritingAvgScore
-            )),
-            .init(type: .subtitle(text: "How to get")),
-            .init(type: .text(text: "Bus: \(school.bus)", lines: 0, color: .black)),
-            .init(type: .text(text: "Subway: \(school.subway)", lines: 0, color: .black)),
-        ]
-//        if
-//            let latitude = school.latitude,
-//            let longitude = school.longitude {
-//            sections.insert(.init(type: .map(
-//                latitude: latitude,
-//                longitude: longitude)
-//            ), at: 11)
-//        }
+    private func handleData(school: School, satResults: SatResultList?) {
+        var sections: [SchoolDetailsSectionVM] = []
+        sections += getMainSection(school: school)
+        sections.append(.init(type: .separator))
+        sections += getAdditionalInfo(school: school)
+        sections.append(.init(type: .separator))
+        if let satResult = satResults?.first {
+            sections += getSatResults(school: school, satResult: satResult)
+            sections.append(.init(type: .separator))
+        }
+        sections += getLocationInfo(school: school)
+        if school.isAdmissionPriority() {
+            sections.append(.init(type: .separator))
+            sections += getAdmissionPriority(school: school)
+        }
+        if school.isRequirements() {
+            sections.append(.init(type: .separator))
+            sections += getRequirements(school: school)
+        }
         self.updateViewData?(.success(.init(
             title: school.schoolName,
             description: school.overviewParagraph,
             sections: sections
         )))
+    }
+    
+    private func getMainSection(school: School) -> [SchoolDetailsSectionVM] {
+        var sections: [SchoolDetailsSectionVM] = []
+        sections.append(.init(type: .title(text: school.schoolName)))
+        sections.append(.init(type: .text(
+            text: "\(school.primaryAddressLine1), \(school.city) \(school.stateCode) \(school.zip)",
+            color: .darkGray
+        )))
+        sections.append(.init(type: .text(
+            label: "Neighborhood: ",
+            text: "\(school.neighborhood)",
+            lines: 1,
+            topSpace: 0
+        )))
+        sections.append(.init(type: .text(
+            label: "Phone: ",
+            text: "\(school.phoneNumber)",
+            lines: 1,
+            topSpace: 0
+        )))
+        if
+            let faxNumber = school.faxNumber,
+            !faxNumber.isEmpty {
+            sections.append(.init(type: .text(
+                label: "Fax: ",
+                text: "\(faxNumber)",
+                lines: 1,
+                topSpace: 0
+            )))
+        }
+        if let email = school.schoolEmail {
+            sections.append(.init(type: .text(
+                label: "Email: ",
+                text: "\(email)",
+                lines: 1,
+                topSpace: 0
+            )))
+        }
+        if let website = school.website {
+            sections.append(.init(type: .text(
+                label: "Website: ",
+                text: "\(website)",
+                lines: 1,
+                topSpace: 0
+            )))
+        }
+        sections.append(.init(type: .text(
+            text: school.overviewParagraph
+        )))
+        return sections
+    }
+    
+    
+    private func getAdditionalInfo(school: School) -> [SchoolDetailsSectionVM] {
+        var sections: [SchoolDetailsSectionVM] = []
+        sections.append(.init(type: .text(
+            label: "Final Grades: ",
+            text: school.finalgrades ?? "N/A"
+        )))
+        sections.append(.init(type: .text(
+            label: "Total Students: ",
+            text: school.totalStudents ?? "N/A"
+        )))
+        sections.append(.init(type: .text(
+            label: "Attendance Rate: ",
+            text: school.getAttendanceRate()
+        )))
+        if let interest = school.interest1 {
+            sections.append(.init(type: .text(
+                label: "Interest: ",
+                text: "\(interest)"
+            )))
+        }
+        if let sports = school.schoolSports {
+            sections.append(.init(type: .text(
+                label: "Sports: ",
+                text: "\(sports)"
+            )))
+        }
+        if let extracurricularActivities = school.extracurricularActivities {
+            sections.append(.init(type: .text(
+                label: "Extracurricular activities: ",
+                text: "\(extracurricularActivities)"
+            )))
+        }
+        return sections
+    }
+    
+    private func getSatResults(
+        school: School,
+        satResult: SatResult
+    ) -> [SchoolDetailsSectionVM] {
+        var sections: [SchoolDetailsSectionVM] = []
+        sections.append(.init(type: .subtitle(text: "SAT Results")))
+        sections.append(.init(type: .twoColumns(
+            text: "Number of takers:",
+            value: satResult.numOfSatTestTakers
+        )))
+        sections.append(.init(type: .twoColumns(
+            text: "Critical Reading Avg. Score:",
+            value: satResult.satCriticalReadingAvgScore,
+            background: true
+        )))
+        sections.append(.init(type: .twoColumns(
+            text: "Math Avg. Score:",
+            value: satResult.satMathAvgScore
+        )))
+        sections.append(.init(type: .twoColumns(
+            text: "Writing Avg. Score:",
+            value: satResult.satWritingAvgScore,
+            background: true
+        )))
+        return sections
+    }
+    
+    private func getLocationInfo(school: School) -> [SchoolDetailsSectionVM] {
+        var sections: [SchoolDetailsSectionVM] = []
+        sections.append(.init(type: .subtitle(text: "How to get there")))
+        sections.append(.init(type: .text(
+            label: "Bus: ",
+            text: "\(school.bus)"
+        )))
+        sections.append(.init(type: .text(
+            label: "Subway: ",
+            text: "\(school.subway)"
+        )))
+        return sections
+    }
+    
+    private func getAdmissionPriority(school: School) -> [SchoolDetailsSectionVM] {
+        var sections: [SchoolDetailsSectionVM] = []
+        sections.append(.init(type: .subtitle(text: "Admission")))
+        if let admissionspriority11 = school.admissionspriority11 {
+            sections.append(.init(type: .text(
+                label: "- ",
+                text: "\(admissionspriority11)"
+            )))
+        }
+        if let admissionspriority21 = school.admissionspriority21 {
+            sections.append(.init(type: .text(
+                label: "- ",
+                text: "\(admissionspriority21)"
+            )))
+        }
+        if let admissionspriority31 = school.admissionspriority31 {
+            sections.append(.init(type: .text(
+                label: "- ",
+                text: "\(admissionspriority31)"
+            )))
+        }
+        return sections
+    }
+    
+    private func getRequirements(school: School) -> [SchoolDetailsSectionVM] {
+        var sections: [SchoolDetailsSectionVM] = []
+        sections.append(.init(type: .subtitle(text: "Requirements")))
+        if let requirement11 = school.requirement11 {
+            sections.append(.init(type: .text(
+                label: "- ",
+                text: "\(requirement11)"
+            )))
+        }
+        if let requirement21 = school.requirement21 {
+            sections.append(.init(type: .text(
+                label: "- ",
+                text: "\(requirement21)"
+            )))
+        }
+        if let requirement31 = school.requirement31 {
+            sections.append(.init(type: .text(
+                label: "- ",
+                text: "\(requirement31)"
+            )))
+        }
+        if let requirement41 = school.requirement41 {
+            sections.append(.init(type: .text(
+                label: "- ",
+                text: "\(requirement41)"
+            )))
+        }
+        if let requirement51 = school.requirement51 {
+            sections.append(.init(type: .text(
+                label: "- ",
+                text: "\(requirement51)"
+            )))
+        }
+        return sections
     }
     
     private func getSchool() -> School? {
