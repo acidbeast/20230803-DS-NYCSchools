@@ -19,6 +19,7 @@ protocol RouterProtocol {
 protocol MainRouterProtocol: RouterProtocol {
     func showSchoolsList()
     func showSchoolDetails(dbn: String)
+    func showWebView(urlString: String) 
 }
 
 final class MainRouter: MainRouterProtocol {
@@ -61,7 +62,17 @@ final class MainRouter: MainRouterProtocol {
             dbn: dbn
         )
         else { return }
-        navigationController.pushViewController(schoolDetailsVC, animated: false)
+        navigationController.pushViewController(schoolDetailsVC, animated: true)
+    }
+    
+    func showWebView(urlString: String) {
+        guard let navigationController = navigationController else { return  }
+        guard let webViewVC = moduleBuilder?.createWebViewModule(
+            router: self,
+            urlString: urlString
+        )
+        else { return }
+        navigationController.present(webViewVC, animated: true)
     }
     
 }

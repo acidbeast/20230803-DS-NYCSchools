@@ -9,13 +9,7 @@ import UIKit
 
 enum SchoolDetailsSectionVMType {
     case title(text: String)
-    case text(
-        label: String = "",
-        text: String,
-        lines: Int = 0,
-        color: UIColor = .black,
-        topSpace: Double = 16
-    )
+    case text(vm: SchoolDetailsTextCellVM)
     case subtitle(text: String)
     case twoColumns(
         text: String,

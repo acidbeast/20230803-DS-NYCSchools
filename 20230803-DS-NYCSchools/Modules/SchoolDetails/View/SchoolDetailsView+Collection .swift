@@ -20,8 +20,8 @@ extension SchoolDetailsView: UICollectionViewDataSource {
         switch section.type {
         case .title(let text):
             return createSchoolDetailsTitle(indexPath, text)
-        case .text(let label, let text, let lines, let color, let topSpace):
-            return createSchoolDetailsText(indexPath, (label, text, lines, color, topSpace))
+        case .text(let vm):
+            return createSchoolDetailsText(indexPath, vm)
         case .subtitle(let text):
             return createSchoolDetailsSubtitle(indexPath, text)
         case .twoColumns(let text, let value, let background):
@@ -62,7 +62,7 @@ private extension SchoolDetailsView {
     
     private func createSchoolDetailsText(
         _ indexPath: IndexPath,
-        _ values: (String, String, Int, UIColor, Double)
+        _ vm: SchoolDetailsTextCellVM
     ) -> UICollectionViewCell {
         guard let cell = createCell(
             SchoolDetailsTextCollectionViewCell.identifier,
@@ -70,7 +70,8 @@ private extension SchoolDetailsView {
         ) as? SchoolDetailsTextCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.updateWith(values: values)
+        cell.updateWith(vm: vm)
+        cell.linkAction = linkAction
         return cell
     }
     

@@ -10,6 +10,7 @@ import UIKit
 protocol ModuleBuilderProtocol {
     func createSchoolsListModule(router: MainRouterProtocol) -> UIViewController
     func createSchoolDetailsModule(router: MainRouterProtocol, dbn: String) -> UIViewController
+    func createWebViewModule(router: MainRouterProtocol, urlString: String) -> UIViewController
 }
 
 final class ModuleBuilder: ModuleBuilderProtocol {
@@ -39,6 +40,15 @@ final class ModuleBuilder: ModuleBuilderProtocol {
             router: router,
             viewModel: vm
         )
+        return vc
+    }
+    
+    func createWebViewModule(
+        router: MainRouterProtocol,
+        urlString: String
+    ) -> UIViewController {
+        let vm = WebViewVM(urlString: urlString)
+        let vc = WebViewVC(router: router, viewModel: vm)
         return vc
     }
 

@@ -28,6 +28,9 @@ extension SchoolDetailsVC {
         schoolDetailsView.errorAction = { [weak self] in
             self?.router.goBack()
         }
+        schoolDetailsView.linkAction = { [weak self] urlString in
+            self?.router.showWebView(urlString: urlString)
+        }
     }
     
     
