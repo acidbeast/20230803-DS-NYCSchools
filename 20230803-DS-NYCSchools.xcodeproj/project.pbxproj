@@ -26,6 +26,12 @@
 		7A163F7F2A7EC287009939C9 /* SchoolsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */; };
 		7A163F812A7EC88D009939C9 /* SchoolsListView+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */; };
 		7A163F832A7EC963009939C9 /* SchoolsListView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */; };
+		7A4C1A2F2A8AABDF0007563F /* SchoolDetailsTextCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C1A2E2A8AABDF0007563F /* SchoolDetailsTextCellVM.swift */; };
+		7A4C1A352A8AE3E30007563F /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C1A342A8AE3E30007563F /* UILabel.swift */; };
+		7A4C1A382A8B077B0007563F /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C1A372A8B077B0007563F /* WebViewVC.swift */; };
+		7A4C1A3C2A8B079E0007563F /* WebViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C1A3B2A8B079E0007563F /* WebViewVM.swift */; };
+		7A4C1A3E2A8B09340007563F /* WebView+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C1A3D2A8B09340007563F /* WebView+Setup.swift */; };
+		7A4C1A402A8B09D70007563F /* WebView+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C1A3F2A8B09D70007563F /* WebView+Navigation.swift */; };
 		7A8019C82A7ED0AC0040C380 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */; };
 		7A8019CA2A7ED0E90040C380 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019C92A7ED0E90040C380 /* LoadingView.swift */; };
 		7A8019CC2A7EE68A0040C380 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8019CB2A7EE68A0040C380 /* EmptyView.swift */; };
@@ -99,6 +105,12 @@
 		7A163F7E2A7EC287009939C9 /* SchoolsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsListView.swift; sourceTree = "<group>"; };
 		7A163F802A7EC88D009939C9 /* SchoolsListView+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListView+Setup.swift"; sourceTree = "<group>"; };
 		7A163F822A7EC963009939C9 /* SchoolsListView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchoolsListView+TableView.swift"; sourceTree = "<group>"; };
+		7A4C1A2E2A8AABDF0007563F /* SchoolDetailsTextCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsTextCellVM.swift; sourceTree = "<group>"; };
+		7A4C1A342A8AE3E30007563F /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		7A4C1A372A8B077B0007563F /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		7A4C1A3B2A8B079E0007563F /* WebViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVM.swift; sourceTree = "<group>"; };
+		7A4C1A3D2A8B09340007563F /* WebView+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Setup.swift"; sourceTree = "<group>"; };
+		7A4C1A3F2A8B09D70007563F /* WebView+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Navigation.swift"; sourceTree = "<group>"; };
 		7A8019C72A7ED0AC0040C380 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		7A8019C92A7ED0E90040C380 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		7A8019CB2A7EE68A0040C380 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -230,6 +242,7 @@
 				7A163F682A7D907D009939C9 /* Constraints.swift */,
 				7A163F6A2A7D90A3009939C9 /* UIView.swift */,
 				7A822A1C2A86CC55006FA646 /* UIColor+Hex.swift */,
+				7A4C1A342A8AE3E30007563F /* UILabel.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -239,6 +252,7 @@
 			children = (
 				7AED115C2A7F253300B0C960 /* SchoolDetails */,
 				7A163F6D2A7D91DA009939C9 /* SchoolsList */,
+				7A4C1A362A8B07490007563F /* WebView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -296,6 +310,33 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7A4C1A362A8B07490007563F /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				7A4C1A392A8B077F0007563F /* View */,
+				7A4C1A3A2A8B07830007563F /* ViewModel */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		7A4C1A392A8B077F0007563F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A4C1A372A8B077B0007563F /* WebViewVC.swift */,
+				7A4C1A3D2A8B09340007563F /* WebView+Setup.swift */,
+				7A4C1A3F2A8B09D70007563F /* WebView+Navigation.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A4C1A3A2A8B07830007563F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7A4C1A3B2A8B079E0007563F /* WebViewVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		7A8019D12A7EF5BF0040C380 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +384,7 @@
 			children = (
 				7AED11622A7F266900B0C960 /* SchoolDetailsVM.swift */,
 				7AED118C2A80DB9D00B0C960 /* SchoolDetailsSectionVM.swift */,
+				7A4C1A2E2A8AABDF0007563F /* SchoolDetailsTextCellVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,11 +400,11 @@
 		7AED118E2A80EC8000B0C960 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7AED118A2A80D9F100B0C960 /* SchoolDetailsTitleCollectionViewCell.swift */,
-				7AED118F2A80EC9C00B0C960 /* SchoolDetailsTextCollectionViewCell.swift */,
-				7AED11912A80F79E00B0C960 /* SchoolDetailsSubtitleCollectionViewCell.swift */,
-				7AED11932A80F9DD00B0C960 /* SchoolDetailsTwoColumnCollectionViewCell.swift */,
 				7A822A1A2A86C076006FA646 /* SchoolDetailsSeparatorCollectionViewCell.swift */,
+				7AED11912A80F79E00B0C960 /* SchoolDetailsSubtitleCollectionViewCell.swift */,
+				7AED118F2A80EC9C00B0C960 /* SchoolDetailsTextCollectionViewCell.swift */,
+				7AED118A2A80D9F100B0C960 /* SchoolDetailsTitleCollectionViewCell.swift */,
+				7AED11932A80F9DD00B0C960 /* SchoolDetailsTwoColumnCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -501,6 +543,7 @@
 				7A822A1B2A86C076006FA646 /* SchoolDetailsSeparatorCollectionViewCell.swift in Sources */,
 				7AED11902A80EC9C00B0C960 /* SchoolDetailsTextCollectionViewCell.swift in Sources */,
 				7A163F792A7EBC4A009939C9 /* SchoolsListVC+Setup.swift in Sources */,
+				7A4C1A382A8B077B0007563F /* WebViewVC.swift in Sources */,
 				7A8019CE2A7EE91B0040C380 /* ErrorView.swift in Sources */,
 				7AED11782A809AEB00B0C960 /* SchoolsListView+Cell.swift in Sources */,
 				7A163F812A7EC88D009939C9 /* SchoolsListView+Setup.swift in Sources */,
@@ -508,7 +551,11 @@
 				7AED11702A7F36EA00B0C960 /* SatResult.swift in Sources */,
 				7A8019CA2A7ED0E90040C380 /* LoadingView.swift in Sources */,
 				7A163F652A7D8AA8009939C9 /* Router.swift in Sources */,
+				7A4C1A3C2A8B079E0007563F /* WebViewVM.swift in Sources */,
+				7A4C1A402A8B09D70007563F /* WebView+Navigation.swift in Sources */,
+				7A4C1A352A8AE3E30007563F /* UILabel.swift in Sources */,
 				7AED118B2A80D9F100B0C960 /* SchoolDetailsTitleCollectionViewCell.swift in Sources */,
+				7A4C1A3E2A8B09340007563F /* WebView+Setup.swift in Sources */,
 				7AED11632A7F266900B0C960 /* SchoolDetailsVM.swift in Sources */,
 				7A8019C82A7ED0AC0040C380 /* IndicatorView.swift in Sources */,
 				7AED11672A7F2F9700B0C960 /* SchoolDetailsViewData.swift in Sources */,
@@ -520,6 +567,7 @@
 				7A163F692A7D907D009939C9 /* Constraints.swift in Sources */,
 				7A822A1D2A86CC55006FA646 /* UIColor+Hex.swift in Sources */,
 				7AED11612A7F260800B0C960 /* SchoolDetailsVC.swift in Sources */,
+				7A4C1A2F2A8AABDF0007563F /* SchoolDetailsTextCellVM.swift in Sources */,
 				7AED11942A80F9DD00B0C960 /* SchoolDetailsTwoColumnCollectionViewCell.swift in Sources */,
 				7AED11922A80F79E00B0C960 /* SchoolDetailsSubtitleCollectionViewCell.swift in Sources */,
 				7A163F7B2A7EC0AE009939C9 /* SchoolsListCellVM.swift in Sources */,

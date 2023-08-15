@@ -83,87 +83,88 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
     private func getMainSection(school: School) -> [SchoolDetailsSectionVM] {
         var sections: [SchoolDetailsSectionVM] = []
         sections.append(.init(type: .title(text: school.schoolName)))
-        sections.append(.init(type: .text(
+        sections.append(.init(type: .text(vm: .init(
             text: "\(school.primaryAddressLine1), \(school.city) \(school.stateCode) \(school.zip)",
             color: .darkGray
-        )))
-        sections.append(.init(type: .text(
+        ))))
+        sections.append(.init(type: .text(vm: .init(
             label: "Neighborhood: ",
             text: "\(school.neighborhood)",
             lines: 1,
             topSpace: 0
-        )))
-        sections.append(.init(type: .text(
+        ))))
+        sections.append(.init(type: .text(vm: .init(
             label: "Phone: ",
             text: "\(school.phoneNumber)",
             lines: 1,
             topSpace: 0
-        )))
+        ))))
         if
             let faxNumber = school.faxNumber,
             !faxNumber.isEmpty {
-            sections.append(.init(type: .text(
+            sections.append(.init(type: .text(vm: .init(
                 label: "Fax: ",
                 text: "\(faxNumber)",
                 lines: 1,
                 topSpace: 0
-            )))
+            ))))
         }
         if let email = school.schoolEmail {
-            sections.append(.init(type: .text(
+            sections.append(.init(type: .text(vm: .init(
                 label: "Email: ",
                 text: "\(email)",
                 lines: 1,
                 topSpace: 0
-            )))
+            ))))
         }
         if let website = school.website {
-            sections.append(.init(type: .text(
+            sections.append(.init(type: .text(vm: .init(
                 label: "Website: ",
                 text: "\(website)",
                 lines: 1,
-                topSpace: 0
-            )))
+                topSpace: 0,
+                isLink: true
+            ))))
         }
-        sections.append(.init(type: .text(
+        sections.append(.init(type: .text(vm: .init(
             text: school.overviewParagraph
-        )))
+        ))))
         return sections
     }
     
     
     private func getAdditionalInfo(school: School) -> [SchoolDetailsSectionVM] {
         var sections: [SchoolDetailsSectionVM] = []
-        sections.append(.init(type: .text(
-            label: "Final Grades: ",
-            text: school.finalgrades ?? "N/A"
-        )))
-        sections.append(.init(type: .text(
-            label: "Total Students: ",
-            text: school.totalStudents ?? "N/A"
-        )))
-        sections.append(.init(type: .text(
-            label: "Attendance Rate: ",
-            text: school.getAttendanceRate()
-        )))
-        if let interest = school.interest1 {
-            sections.append(.init(type: .text(
-                label: "Interest: ",
-                text: "\(interest)"
-            )))
-        }
-        if let sports = school.schoolSports {
-            sections.append(.init(type: .text(
-                label: "Sports: ",
-                text: "\(sports)"
-            )))
-        }
-        if let extracurricularActivities = school.extracurricularActivities {
-            sections.append(.init(type: .text(
-                label: "Extracurricular activities: ",
-                text: "\(extracurricularActivities)"
-            )))
-        }
+//        sections.append(.init(type: .text(
+//            label: "Final Grades: ",
+//            text: school.finalgrades ?? "N/A"
+//        )))
+//        sections.append(.init(type: .text(
+//            label: "Total Students: ",
+//            text: school.totalStudents ?? "N/A"
+//        )))
+//        sections.append(.init(type: .text(
+//            label: "Attendance Rate: ",
+//            text: school.getAttendanceRate()
+//        )))
+//        if let interest = school.interest1 {
+//            sections.append(.init(type: .text(
+//                label: "Interest: ",
+//                text: "\(interest)"
+//            )))
+//        }
+//        if let sports = school.schoolSports {
+//            sections.append(.init(type: .text(
+//                label: "Sports: ",
+//                text: "\(sports)"
+//            )))
+//        }
+//        if let extracurricularActivities = school.extracurricularActivities {
+//            sections.append(.init(type: .text(
+//                label: "Extra activities: ",
+//                text: "\(extracurricularActivities)"
+//            )))
+//        }
         return sections
     }
     
@@ -197,74 +198,74 @@ final class SchoolDetailsVM: SchoolDetailsVMProtocol {
     private func getLocationInfo(school: School) -> [SchoolDetailsSectionVM] {
         var sections: [SchoolDetailsSectionVM] = []
         sections.append(.init(type: .subtitle(text: "How to get there")))
-        sections.append(.init(type: .text(
-            label: "Bus: ",
-            text: "\(school.bus)"
-        )))
-        sections.append(.init(type: .text(
-            label: "Subway: ",
-            text: "\(school.subway)"
-        )))
+//        sections.append(.init(type: .text(
+//            label: "Bus: ",
+//            text: "\(school.bus)"
+//        )))
+//        sections.append(.init(type: .text(
+//            label: "Subway: ",
+//            text: "\(school.subway)"
+//        )))
         return sections
     }
     
     private func getAdmissionPriority(school: School) -> [SchoolDetailsSectionVM] {
         var sections: [SchoolDetailsSectionVM] = []
         sections.append(.init(type: .subtitle(text: "Admission")))
-        if let admissionspriority11 = school.admissionspriority11 {
-            sections.append(.init(type: .text(
-                label: "- ",
-                text: "\(admissionspriority11)"
-            )))
-        }
-        if let admissionspriority21 = school.admissionspriority21 {
-            sections.append(.init(type: .text(
-                label: "- ",
-                text: "\(admissionspriority21)"
-            )))
-        }
-        if let admissionspriority31 = school.admissionspriority31 {
-            sections.append(.init(type: .text(
-                label: "- ",
-                text: "\(admissionspriority31)"
-            )))
-        }
+//        if let admissionspriority11 = school.admissionspriority11 {
+//            sections.append(.init(type: .text(
+//                label: "- ",
+//                text: "\(admissionspriority11)"
+//            )))
+//        }
+//        if let admissionspriority21 = school.admissionspriority21 {
+//            sections.append(.init(type: .text(
+//                label: "- ",
+//                text: "\(admissionspriority21)"
+//            )))
+//        }
+//        if let admissionspriority31 = school.admissionspriority31 {
+//            sections.append(.init(type: .text(
+//                label: "- ",
+//                text: "\(admissionspriority31)"
+//            )))
+//        }
         return sections
     }
     
     private func getRequirements(school: School) -> [SchoolDetailsSectionVM] {
         var sections: [SchoolDetailsSectionVM] = []
         sections.append(.init(type: .subtitle(text: "Requirements")))
-        if let requirement11 = school.requirement11 {
-            sections.append(.init(type: .text(
-                label: "- ",
-                text: "\(requirement11)"
-            )))
-        }
-        if let requirement21 = school.requirement21 {
-            sections.append(.init(type: .text(
-                label: "- ",
-                text: "\(requirement21)"
-            )))
-        }
-        if let requirement31 = school.requirement31 {
-            sections.append(.init(type: .text(
-                label: "- ",
-                text: "\(requirement31)"
-            )))
-        }
-        if let requirement41 = school.requirement41 {
-            sections.append(.init(type: .text(
-                label: "- ",
-                text: "\(requirement41)"
-            )))
-        }
-        if let requirement51 = school.requirement51 {
-            sections.append(.init(type: .text(
-                label: "- ",
-                text: "\(requirement51)"
-            )))
-        }
+//        if let requirement11 = school.requirement11 {
+//            sections.append(.init(type: .text(
+//                label: "- ",
+//                text: "\(requirement11)"
+//            )))
+//        }
+//        if let requirement21 = school.requirement21 {
+//            sections.append(.init(type: .text(
+//                label: "- ",
+//                text: "\(requirement21)"
+//            )))
+//        }
+//        if let requirement31 = school.requirement31 {
+//            sections.append(.init(type: .text(
+//                label: "- ",
+//                text: "\(requirement31)"
+//            )))
+//        }
+//        if let requirement41 = school.requirement41 {
+//            sections.append(.init(type: .text(
+//                label: "- ",
+//                text: "\(requirement41)"
+//            )))
+//        }
+//        if let requirement51 = school.requirement51 {
+//            sections.append(.init(type: .text(
+//                label: "- ",
+//                text: "\(requirement51)"
+//            )))
+//        }
         return sections
     }
     

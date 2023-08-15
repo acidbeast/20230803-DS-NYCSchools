@@ -17,6 +17,7 @@ final class SchoolDetailsView: UIView {
     
     var sectionsData = [SchoolDetailsSectionVM]()
     var errorAction: (() -> Void)?
+    var linkAction: ((String) -> Void)?
     
     lazy var collectionView = UICollectionView()
     lazy var loadingView = LoadingView()

@@ -29,7 +29,7 @@ final class SchoolDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup(navigationTitle: viewModel.navigationTitle)
-        setUpdateViewHander() 
+        setUpdateViewHander()
         viewModel.getData()
     }
     

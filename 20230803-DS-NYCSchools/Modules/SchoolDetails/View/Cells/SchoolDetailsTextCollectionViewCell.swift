@@ -12,6 +12,9 @@ final class SchoolDetailsTextCollectionViewCell: UICollectionViewCell {
     private let textLabel = UILabel()
     private let prefixLabel = UILabel()
     var topConstraint : NSLayoutConstraint?
+    var linkText: String?
+    var linkLabel: String?
+    var linkAction: ((String) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +27,17 @@ final class SchoolDetailsTextCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        removeRecognizers()
         textLabel.text = ""
+        textLabel.isUserInteractionEnabled = false
+        linkText = nil
+        linkLabel = nil
+    }
+    
+    private func removeRecognizers() {
+        for recognizer in textLabel.gestureRecognizers ?? [] {
+            textLabel.removeGestureRecognizer(recognizer)
+        }
     }
     
 }
@@ -54,37 +67,93 @@ private extension SchoolDetailsTextCollectionViewCell {
 
 extension SchoolDetailsTextCollectionViewCell {
     
-    func updateWith(values: (String, String, Int, UIColor, Double)) {
-        
-        var prefixText = ""
-        if !values.0.isEmpty {
-            prefixText = "\(values.0)"
+    func updateWith(vm: SchoolDetailsTextCellVM) {
+        let text = getLabelAttributedString(with: vm.label)
+        text.append(getTextAttributedString(with: vm.text, vm.isLink))
+        textLabel.attributedText = text
+        textLabel.numberOfLines = vm.lines
+        setTopSpace(vm.topSpace)
+        setTextColor(vm: vm)
+        addClickHandler(vm: vm)
+    }
+    
+    @objc private func tapHandler(_ recognizer: UITapGestureRecognizer) {
+        guard let linkText = linkText else { return }
+        guard let linkLabel = linkLabel else { return }
+        let tapLocation = recognizer.location(in: textLabel)
+        let tapIndex = textLabel.indexOfAttributedTextCharacterAtPoint(point: tapLocation)
+        if tapIndex > linkLabel.count && tapIndex < linkText.count {
+            if let linkAction = linkAction {
+                linkAction(linkText)
+            }
         }
-
+    }
+    
+    private func setTopSpace(_ topSpace: Double) {
+        topConstraint?.constant = 0
+        if topSpace > 0 {
+            topConstraint?.constant = topSpace
+            setNeedsLayout()
+        }
+    }
+    
+    private func setTextColor(vm: SchoolDetailsTextCellVM) {
+        if !vm.isLink {
+            textLabel.textColor = vm.color
+        }
+    }
+    
+    private func addClickHandler(vm: SchoolDetailsTextCellVM) {
+        if vm.isLink {
+            linkText = vm.text
+            linkLabel = vm.label
+            textLabel.isUserInteractionEnabled = true
+            let tapgesture = UITapGestureRecognizer(
+                target: self,
+                action: #selector(tapHandler(_ :))
+            )
+            tapgesture.numberOfTapsRequired = 1
+            self.textLabel.addGestureRecognizer(tapgesture)
+        }
+    }
+    
+    private func getLabelAttributedString(with value: String) -> NSMutableAttributedString {
+        var text = ""
+        if !value.isEmpty {
+            text = value
+        }
         let attrs = [
             NSAttributedString.Key.font : UIFont(name: "Avenir Next Medium", size: 16)
         ]
-        let prefixString = NSMutableAttributedString(
-            string: prefixText,
+        let output = NSMutableAttributedString(
+            string: text,
             attributes: attrs as [NSAttributedString.Key : Any]
         )
-
-        let textValue = values.1
+        return output
+    }
+    
+    private func getTextAttributedString(
+        with value: String,
+        _ isLink: Bool
+    ) -> NSMutableAttributedString {
+        let text = value
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .replacingOccurrences(of: "Â", with: "")
-        let text = "\(textValue)"
-        let textString = NSMutableAttributedString(string: text)
-        prefixString.append(textString)
-
-        textLabel.attributedText = prefixString
-        textLabel.numberOfLines = values.2
-        textLabel.textColor = values.3
-        topConstraint?.constant = 0
-        if values.4 > 0 {
-            topConstraint?.constant = values.4
-            setNeedsLayout()
+        let range = NSMakeRange(0, text.count)
+        let output = NSMutableAttributedString(string: text)
+        if isLink {
+            output.addAttribute(
+                .foregroundColor,
+                value: UIColor.systemBlue,
+                range: range
+            )
+            output.addAttribute(
+                .underlineStyle,
+                value: NSUnderlineStyle.single.rawValue,
+                range: range
+            )
         }
-        
+        return output
     }
     
 }
