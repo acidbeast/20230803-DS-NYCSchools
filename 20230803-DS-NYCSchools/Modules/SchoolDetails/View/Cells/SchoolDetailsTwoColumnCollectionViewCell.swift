@@ -25,6 +25,7 @@ final class SchoolDetailsTwoColumnsCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         textLabel.text = ""
         valueLabel.text = ""
+        backgroundColor = .white
     }
     
 }
