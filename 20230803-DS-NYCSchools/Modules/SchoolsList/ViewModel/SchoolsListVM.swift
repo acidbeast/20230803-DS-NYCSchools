@@ -84,7 +84,7 @@ final class SchoolsListVM: SchoolsListVMProtocol {
             description: "Please wait...",
             schools: nil
         )))
-        guard let schools = schoolsService.getSchoolsSorted(by: name) else { return }
+        guard let schools = schoolsService.getSchoolsFiltered(by: name) else { return }
         if schools.count == 0 {
             self.updateViewData?(.empty(.init(
                 title: "Not Found",

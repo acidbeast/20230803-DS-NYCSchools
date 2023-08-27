@@ -11,7 +11,7 @@ protocol SchoolsServiceProtocol {
     var schoolsList: SchoolsList? { get set }
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void)
     func getSchool(dbn: String) -> School?
-    func getSchoolsSorted(by name: String) -> SchoolsList? 
+    func getSchoolsFiltered(by name: String) -> SchoolsList? 
 }
 
 final class SchoolsService: Service, SchoolsServiceProtocol {
@@ -41,7 +41,7 @@ final class SchoolsService: Service, SchoolsServiceProtocol {
         return schoolsList?.filter{ $0.dbn == dbn }.first
     }
     
-    func getSchoolsSorted(by name: String) -> SchoolsList? {
+    func getSchoolsFiltered(by name: String) -> SchoolsList? {
         schoolsList?.filter { $0.schoolName.lowercased().contains(name.lowercased()) }
     }
     

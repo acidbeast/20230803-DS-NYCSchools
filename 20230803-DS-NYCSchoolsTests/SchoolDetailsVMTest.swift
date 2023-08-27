@@ -15,7 +15,7 @@ final class SchoolsDetailsVMSchoolsServiceMock: SchoolsServiceProtocol {
     var callCounter = 0
     var schoolsList: SchoolsList?
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {}
-    func getSchoolsSorted(by name: String) -> SchoolsList? { return nil }
+    func getSchoolsFiltered(by name: String) -> SchoolsList? { return nil }
     
     func getSchool(dbn: String) -> School? {
         callCounter += 1

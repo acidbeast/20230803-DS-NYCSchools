@@ -13,7 +13,7 @@ final class SchoolsListServiceMock: SchoolsServiceProtocol {
     var callCounter = 0
     var schoolsList: SchoolsList?
     func getSchool(dbn: String) -> School? { return nil }
-    func getSchoolsSorted(by name: String) -> SchoolsList? { return nil }
+    func getSchoolsFiltered(by name: String) -> SchoolsList? { return nil }
     
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         callCounter += 1
@@ -25,7 +25,7 @@ final class SchoolsListServiceErrorMock: SchoolsServiceProtocol {
     
     var schoolsList: SchoolsList?
     func getSchool(dbn: String) -> School? { return nil }
-    func getSchoolsSorted(by name: String) -> SchoolsList? { return nil }
+    func getSchoolsFiltered(by name: String) -> SchoolsList? { return nil }
     
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         enum TestError: Error {
@@ -41,7 +41,7 @@ final class SchoolsListServiceParseErrorMock: SchoolsServiceProtocol {
     
     var schoolsList: SchoolsList?
     func getSchool(dbn: String) -> School? { return nil }
-    func getSchoolsSorted(by name: String) -> SchoolsList? { return nil }
+    func getSchoolsFiltered(by name: String) -> SchoolsList? { return nil }
     
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         completion(nil, nil)
@@ -53,7 +53,7 @@ final class SchoolsListServiceEmptyMock: SchoolsServiceProtocol {
     
     var schoolsList: SchoolsList?
     func getSchool(dbn: String) -> School? { return nil }
-    func getSchoolsSorted(by name: String) -> SchoolsList? { return nil }
+    func getSchoolsFiltered(by name: String) -> SchoolsList? { return nil }
     
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         let data = SchoolsList()
@@ -66,7 +66,7 @@ final class SchoolsListServiceSuccessMock: SchoolsServiceProtocol {
 
     var schoolsList: SchoolsList?
     func getSchool(dbn: String) -> School? { return nil }
-    func getSchoolsSorted(by name: String) -> SchoolsList? { return nil }
+    func getSchoolsFiltered(by name: String) -> SchoolsList? { return nil }
     
     func getSchools(completion: @escaping (SchoolsList?, Error?) -> Void) {
         var data = SchoolsList()
